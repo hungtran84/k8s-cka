@@ -16,7 +16,7 @@ kubectl get pods -o wide
 
 #If we scale the web deployment
 #We'll still get spread across nodes in the ReplicaSet, so we don't need to enforce that with affinity
-kubectl scale deployment hello-world-web --replicas=2
+kubectl scale deployment hello-world-web --replicas=6
 kubectl get pods -o wide 
 
 

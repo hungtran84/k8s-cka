@@ -31,9 +31,7 @@ PODNAME=$(kubectl get pods | grep hello-world-configmaps-env-prod | awk '{print 
 echo $PODNAME
 
 
-kubectl exec -it $PODNAME -- /bin/sh 
-printenv | sort
-exit
+kubectl exec -it $PODNAME -- printenv | sort
 
 
 #Second as files
