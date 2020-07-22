@@ -37,7 +37,6 @@ echo $PODNAME
 
 #Now let's get our enviroment variables from our container
 #Our Enviroment variables from our Pod Spec are defined
-#Notice the alpha information is there but not the beta information. Since beta wasn't defined when the Pod started.
 kubectl exec -it $PODNAME -- /bin/sh
 printenv | grep ^app1
 exit
@@ -81,7 +80,6 @@ kubectl delete deployment hello-world-secrets-files
 
 
 #Additional examples of using secrets in your Pods
-#I'll leave this up to you to work with...
 #Create a secret using clear text and the stringData field
 kubectl apply -f secret.string.yaml
 
@@ -104,10 +102,7 @@ kubectl create secret generic app1 --from-literal=USERNAME=app1login --from-lite
 kubectl apply -f deployment-secrets-env-from.yaml
 
 PODNAME=$(kubectl get pods | grep hello-world-secrets-env-from | awk '{print $1}' | head -n 1)
-echo $PODNAME 
-kubectl exec -it $PODNAME -- /bin/sh
-printenv | sort
-exit
+kubectl exec -it $PODNAME -- printenv | sort
 
 
 kubectl delete secret app1
