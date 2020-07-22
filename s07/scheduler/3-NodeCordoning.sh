@@ -1,4 +1,8 @@
 #Demo 1 - Node Cordoning
+#Drain node in preparation for maintenance.
+#The given node will be marked unschedulable to prevent new pods from arriving. and evict pods
+#When you are ready to put the node back into service, use kubectl uncordon, which will make the node schedulable again.
+
 #Let's create a deployment with three replicas
 kubectl apply -f deployment.yaml
 
