@@ -61,9 +61,8 @@ kubectl get configmap appconfigqa -o yaml
 kubectl edit configmap appconfigqa
 
 
-kubectl exec -it $PODNAME -- /bin/sh 
-watch cat /etc/appconfig/appconfigqa
-exit
+kubectl exec -it $PODNAME -- watch cat /etc/appconfig/appconfigqa
+
 
 
 
