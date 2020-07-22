@@ -14,8 +14,16 @@ spec:
     spec:
       containers:
       - name: hello-world
-        image: nocentino/hello-app:ps
+        image: votiethuy/hello:latest
         ports:
           - containerPort: 8080
+        resources:
+          requests:
+            memory: 128M
+            cpu: 100m
+          limits:
+            memory: 128M
+            cpu: 100m
       imagePullSecrets:
       - name: private-reg-cred
+
