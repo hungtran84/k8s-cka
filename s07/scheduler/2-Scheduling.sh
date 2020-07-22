@@ -1,12 +1,3 @@
-#Demo - Using Labels to Schedule Pods to Nodes
-#The code is below to experiment with on your own. 
-# Course: Managing the Kubernetes API Server and Pods
-# Module: Managing Objects with Labels, Annotations, and Namespaces
-# Clip:   Demo: Services, Labels, Selectors, and Scheduling Pods to Nodes
-
-
-
-
 #Demo 1a - Using Affinity and Anti-Affinity to schedule Pods to Nodes
 #Let's start off with a deployment of web and cache pods
 #Affinity: we want to have always have a cache pod co-located on a Node where we a Web Pod
@@ -15,7 +6,7 @@ kubectl apply -f deployment-affinity.yaml
 
 #Let's check out the labels on the nodes, look for kubernetes.io/hostname which
 #we're using for our topologykey
-kubectl describe nodes c1-node1 | head
+kubectl describe nodes gke-cluster-1-default-pool-990b49f7-bzft | head
 kubectl get nodes --show-labels
 
 

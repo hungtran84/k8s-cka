@@ -30,6 +30,11 @@ kubectl delete deployment hello-world
 
 
 #Demo 2 - Scheduling Pods with resource requests
+
+#Get resources allocable
+kubectl top nodes
+
+#Scheduling Pods with resource requests
 kubectl apply -f requests.yaml
 
 
