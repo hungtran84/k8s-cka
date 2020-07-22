@@ -1,6 +1,3 @@
-ssh aen@c1-master1
-cd ~/content/course/m2/demos/
-
 #Demo 1 - StorageClasses and Dynamic Provisioning in the Azure
 #Let's create a disk in Azure. Using a dynamic provisioner and storage class
 

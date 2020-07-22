@@ -1,8 +1,3 @@
-#Log into the master to drive these demos.
-ssh aen@c1-master1
-cd ~/content/course/m3/demos
-
-
 #Demo 1 - Creating and accessing Secrets
 #Generic - Create a secret from a local file, directory or literal value
 #They keys and values are case sensitive

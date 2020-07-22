@@ -1,8 +1,3 @@
-#Log into the master to drive these demos.
-ssh aen@c1-master1
-cd ~/content/course/m3/demos
-
-
 #Demo 1 - Passing Configuration into Containers using Environment Variables
 #Create two deployments, one for a database system and the other our application.
 #I'm putting a little wait in there so the Pods are created one after the other.
