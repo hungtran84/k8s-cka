@@ -1,7 +1,3 @@
-#Log into the master to drive these demos.
-ssh aen@c1-master1
-cd ~/content/course/m4/demos
-
 #Demo - Using Labels to Schedule Pods to Nodes
 #The code is below to experiment with on your own. 
 # Course: Managing the Kubernetes API Server and Pods

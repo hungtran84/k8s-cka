@@ -1,10 +1,3 @@
-#Log into the master to drive these demos.
-ssh aen@c1-master1
-cd ~/content/course/m4/demos
-
-
-
-
 #Demo 1 - Node Cordoning
 #Let's create a deployment with three replicas
 kubectl apply -f deployment.yaml
