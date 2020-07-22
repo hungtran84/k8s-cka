@@ -17,6 +17,13 @@ spec:
         image: gcr.io/google-samples/hello-app:1.0
         ports:
         - containerPort: 8080
+        resources:
+          requests:
+            memory: 128M
+            cpu: 100m
+          limits:
+            memory: 128M
+            cpu: 100m
       nodeSelector:
         hardware: local_gpu
 ---
