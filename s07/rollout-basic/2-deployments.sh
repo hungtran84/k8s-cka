@@ -1,6 +1,3 @@
-ssh aen@c1-master1
-cd ~/content/course/m3/demos/
-
 #Demo 2.1 - Updating to a non-existent image. 
 #Delete any current deployments, because we're interested in the deploy state changes.
 kubectl delete deployment hello-world
