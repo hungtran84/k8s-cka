@@ -72,7 +72,7 @@ kubectl get daemonsets
 - We need a Node that satisfies the Node Selector
 
 ```
-kubectl label node c1-node1 node=hello-world-ns
+kubectl label node gke-cluster-1-default-pool-c9e0f08b-9hh7 node=hello-world-ns
 ```
 
 - Let's see if a Pod gets created...
@@ -84,7 +84,7 @@ kubectl get daemonsets -o wide
 - What's going to happen if we remove the label
 
 ```
-kubectl label node c1-node1 node-
+kubectl label node gke-cluster-1-default-pool-c9e0f08b-9hh7 node-
 ```
 
 - It's going to terminate the Pod, examine events, Desired Number of Nodes Scheduled...
