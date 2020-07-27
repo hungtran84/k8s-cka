@@ -23,7 +23,8 @@ kubectl apply -f web-deny-all.yaml
 - Try it out. Traffic drop
 
 ```
-kubectl run --generator=run-pod/v1 --rm -i -t --image=alpine test-$RANDOM -- wget -qO- --timeout=2 http://web
+kubectl run --generator=run-pod/v1 --rm -i -t --image=alpine test-$RANDOM -- sh
+wget -qO- --timeout=2 http://web
 ```
 
 - Clean
@@ -58,6 +59,7 @@ kubectl apply -f api-allow.yaml
 ```
 kubectl run --generator=run-pod/v1 test-$RANDOM --rm -i -t --image=alpine -- sh
 wget -qO- --timeout=2 http://apiserver
+exit
 ```
 
 - Test the Network Policy is allowing the traffic, by running a Pod with the app=bookstore label:
@@ -65,6 +67,7 @@ wget -qO- --timeout=2 http://apiserver
 ```
 kubectl run --generator=run-pod/v1 test-$RANDOM --rm -i -t --image=alpine --labels app=bookstore,role=frontend -- sh
 wget -qO- --timeout=2 http://apiserver
+exit
 ```
 
 - Cleanup
