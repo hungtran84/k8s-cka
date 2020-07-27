@@ -27,7 +27,7 @@ kubectl get service nginx
 - Get Statefulset
 
 ```
-kubectl get statefulset nginx
+kubectl get statefulset web
 ```
 
 - Check using Stable Network Identities
