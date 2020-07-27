@@ -73,10 +73,16 @@ kubectl apply -f pod-with-sa.yaml
 - Check again
 
 ```
-```
 kubectl exec -ti pod-demo-sa -- sh
 apk add --update curl
 TOKEN=$(cat /run/secrets/kubernetes.io/serviceaccount/token)
 curl -H "Authorization: Bearer $TOKEN" https://kubernetes/api/v1/namespaces/default/pods/ --insecure
+```
+
+- Cleanup
+
+```
+kubectl delete -f pod-noserviceaccount.yaml
+kubectl delete -f pod-with-sa.yaml
 ```
 
