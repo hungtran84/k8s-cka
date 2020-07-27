@@ -63,3 +63,20 @@ curl -H "Authorization: Bearer $TOKEN" https://kubernetes/api/v1/namespaces/defa
 ```
 kubectl apply -f custom_serviceaccount.yaml
 ```
+
+- Apply to pods
+
+```
+kubectl apply -f pod-with-sa.yaml
+```
+
+- Check again
+
+```
+```
+kubectl exec -ti pod-demo-sa -- sh
+apk add --update curl
+TOKEN=$(cat /run/secrets/kubernetes.io/serviceaccount/token)
+curl -H "Authorization: Bearer $TOKEN" https://kubernetes/api/v1/namespaces/default/pods/ --insecure
+```
+
