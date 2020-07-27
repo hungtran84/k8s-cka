@@ -25,7 +25,7 @@ kubectl get secret default-token-dffkj -o yaml
 - Decode base64
 
 ```
-echo $(kubectl get secret default-token-grng7 --template={{.data.token}} | base64 --decode )
+echo $(kubectl get secret default-token-klqrp --template={{.data.token}} | base64 --decode )
 ```
 
 - Check how service account apply to a pod
