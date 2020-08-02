@@ -1,0 +1,433 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/limit-ranger": "LimitRanger plugin set: cpu request for container hello-app"
+                },
+                "creationTimestamp": "2020-08-02T15:17:30Z",
+                "generateName": "hello-world-7f886656bb-",
+                "labels": {
+                    "app": "hello-world",
+                    "pod-template-hash": "7f886656bb"
+                },
+                "name": "hello-world-7f886656bb-7gnrz",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "hello-world-7f886656bb",
+                        "uid": "52f84f4b-38ba-47fc-a001-c146e488d479"
+                    }
+                ],
+                "resourceVersion": "12847",
+                "selfLink": "/api/v1/namespaces/default/pods/hello-world-7f886656bb-7gnrz",
+                "uid": "bea682f7-5252-467a-8aac-2a63345bc262"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "gcr.io/google-samples/hello-app:1.0",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "hello-app",
+                        "resources": {
+                            "requests": {
+                                "cpu": "100m"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qjtnp",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "nodes-t3m1",
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-qjtnp",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qjtnp"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-08-02T15:17:30Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-08-02T15:17:33Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-08-02T15:17:33Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-08-02T15:17:30Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://81bdd680ff573948f5a90726a0ddd85c5c3df30adfde6ef15699ed75a4a55e52",
+                        "image": "gcr.io/google-samples/hello-app:1.0",
+                        "imageID": "docker-pullable://gcr.io/google-samples/hello-app@sha256:c62ead5b8c15c231f9e786250b07909daf6c266d0fcddd93fea882eb722c3be4",
+                        "lastState": {},
+                        "name": "hello-app",
+                        "ready": true,
+                        "restartCount": 0,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2020-08-02T15:17:32Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "10.148.0.38",
+                "phase": "Running",
+                "podIP": "100.96.3.4",
+                "podIPs": [
+                    {
+                        "ip": "100.96.3.4"
+                    }
+                ],
+                "qosClass": "Burstable",
+                "startTime": "2020-08-02T15:17:30Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/limit-ranger": "LimitRanger plugin set: cpu request for container hello-app"
+                },
+                "creationTimestamp": "2020-08-02T15:17:26Z",
+                "generateName": "hello-world-7f886656bb-",
+                "labels": {
+                    "app": "hello-world",
+                    "pod-template-hash": "7f886656bb"
+                },
+                "name": "hello-world-7f886656bb-cxdjh",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "hello-world-7f886656bb",
+                        "uid": "52f84f4b-38ba-47fc-a001-c146e488d479"
+                    }
+                ],
+                "resourceVersion": "12822",
+                "selfLink": "/api/v1/namespaces/default/pods/hello-world-7f886656bb-cxdjh",
+                "uid": "2e37fbba-59fd-4043-b9ee-f554a8329436"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "gcr.io/google-samples/hello-app:1.0",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "hello-app",
+                        "resources": {
+                            "requests": {
+                                "cpu": "100m"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qjtnp",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "nodes-bm4m",
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-qjtnp",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qjtnp"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-08-02T15:17:26Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-08-02T15:17:29Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-08-02T15:17:29Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-08-02T15:17:26Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://7430c28fae7ffddf8f733bf00d3cc4cea9107a32506c7b1e1abfeac66b74d74a",
+                        "image": "gcr.io/google-samples/hello-app:1.0",
+                        "imageID": "docker-pullable://gcr.io/google-samples/hello-app@sha256:c62ead5b8c15c231f9e786250b07909daf6c266d0fcddd93fea882eb722c3be4",
+                        "lastState": {},
+                        "name": "hello-app",
+                        "ready": true,
+                        "restartCount": 0,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2020-08-02T15:17:28Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "10.148.0.39",
+                "phase": "Running",
+                "podIP": "100.96.2.5",
+                "podIPs": [
+                    {
+                        "ip": "100.96.2.5"
+                    }
+                ],
+                "qosClass": "Burstable",
+                "startTime": "2020-08-02T15:17:26Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "kubernetes.io/limit-ranger": "LimitRanger plugin set: cpu request for container hello-app"
+                },
+                "creationTimestamp": "2020-08-02T15:17:30Z",
+                "generateName": "hello-world-7f886656bb-",
+                "labels": {
+                    "app": "hello-world",
+                    "pod-template-hash": "7f886656bb"
+                },
+                "name": "hello-world-7f886656bb-z8bjr",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "hello-world-7f886656bb",
+                        "uid": "52f84f4b-38ba-47fc-a001-c146e488d479"
+                    }
+                ],
+                "resourceVersion": "12851",
+                "selfLink": "/api/v1/namespaces/default/pods/hello-world-7f886656bb-z8bjr",
+                "uid": "10678034-7b7f-43e0-8325-2a311e8a5ae6"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "gcr.io/google-samples/hello-app:1.0",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "hello-app",
+                        "resources": {
+                            "requests": {
+                                "cpu": "100m"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-qjtnp",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "nodes-8zlg",
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-qjtnp",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-qjtnp"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-08-02T15:17:30Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-08-02T15:17:33Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-08-02T15:17:33Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2020-08-02T15:17:30Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://fc1d547dd87fb14a2cc26f483b8833f07f2c21fd1d3b53e57734a2f7df581cfd",
+                        "image": "gcr.io/google-samples/hello-app:1.0",
+                        "imageID": "docker-pullable://gcr.io/google-samples/hello-app@sha256:c62ead5b8c15c231f9e786250b07909daf6c266d0fcddd93fea882eb722c3be4",
+                        "lastState": {},
+                        "name": "hello-app",
+                        "ready": true,
+                        "restartCount": 0,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2020-08-02T15:17:32Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "10.148.0.40",
+                "phase": "Running",
+                "podIP": "100.96.1.4",
+                "podIPs": [
+                    {
+                        "ip": "100.96.1.4"
+                    }
+                ],
+                "qosClass": "Burstable",
+                "startTime": "2020-08-02T15:17:30Z"
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}
