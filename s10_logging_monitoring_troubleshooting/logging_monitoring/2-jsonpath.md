@@ -50,7 +50,6 @@ kubectl get pods --all-namespaces -o jsonpath='{range .items[*]}{.spec.container
 ```
 
 
-
 # Filtering a specific value in a list
 
 - Let's say there's an list inside items and you need to access an element in that list...
@@ -75,7 +74,7 @@ object but not part of the default kubectl output. like creationTimestamp and we
 We can use a custom colume to output object field data, in this case the creation timestamp
 
 ```
-kubectl get pods -A -o jsonpath='{ .items[*].metadata.name }{"\n"}' --sort-by=.metadata.creationTimestamp --output=custom-columns='NAME:metadata.name,CREATIONTIMESTAMP:metadata.creationTimestamp'
+kubectl get pods -A -o jsonpath='{ .items[*].metadata.name }{"\n"}' --sort-by=.metadata.creationTimestamp --output=custom-columns='NAME:metadata.name, CREATIONTIMESTAMP:metadata.creationTimestamp'
 ```
 
 - Clean up our resources
@@ -104,7 +103,7 @@ Range iterates over a list performing the formatting operations on each element 
 We can also add in a sort on the container image name
 
 ```
-kubectl get pods -A -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.spec.containers[*].image}{"\n"}{end}' --sort-by=.spec.containers[*].image
+kubectl get pods -A -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.spec.containers[*].image}{"\n"}{end}'
 ```
 
 - We can use range again to clean up the output if we want

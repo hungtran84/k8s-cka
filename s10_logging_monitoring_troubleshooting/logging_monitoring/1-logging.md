@@ -198,7 +198,7 @@ kubectl get events --namespace kube-system
 
 ```
 kubectl describe deployment nginx
-kubectl describe replicaset nginx-675d6c6f67
+kubectl describe replicaset nginx-578f84cfdf
 kubectl describe pods nginx
 ```
 

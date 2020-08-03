@@ -1,4 +1,0 @@
-dependencies:
-  - name: kafka
-    version: 0.10.0
-    repository: https://storage.googleapis.com/kubernetes-charts-incubator
