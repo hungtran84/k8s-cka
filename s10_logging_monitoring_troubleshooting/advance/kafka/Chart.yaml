@@ -1,0 +1,5 @@
+apiVersion: v1
+appVersion: "1.0"
+description: A Helm chart for deploying scorpius's local kafka instance
+name: kafka
+version: 0.1.0

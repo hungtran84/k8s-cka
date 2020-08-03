@@ -147,51 +147,71 @@ sudo tail /var/log/containers/kube-apiserver*
 
 
 
-#4 - Events
+# 4 - Events
 #Show events for all objects in the cluster in the default namespace
 #Look for the deployment creation and scaling operations from above...
 #If you don't have any events since they are only around for an hour create a deployment to generate some
+
+```
 kubectl get events 
+```
 
+- It can be easier if the data is actually sorted...
+sort by isn't for just events, it can be used in most output
 
-#It can be easier if the data is actually sorted...
-#sort by isn't for just events, it can be used in most output
+```
 kubectl get events --sort-by='.metadata.creationTimestamp'
- 
+``` 
 
-#Create a flawed deployment
+- Create a flawed deployment
+
+```
 kubectl create deployment nginx --image ngins
+```
 
+- We can filter the list of events using field selector
 
-#We can filter the list of events using field selector
+```
 kubectl get events --field-selector type=Warning
 kubectl get events --field-selector type=Warning,reason=Failed
+```
 
+- We can also monitor the events as they happen with watch
 
-#We can also monitor the events as they happen with watch
+```
 kubectl get events --watch &
 kubectl scale deployment loggingdemo --replicas=5
+```
 
-
-#break out of the watch
+- break out of the watch
 fg
 ctrl+c
 
 
-#We can look in another namespace too if needed.
+- We can look in another namespace too if needed.
+
+```
 kubectl get events --namespace kube-system
+```
 
+- These events are also available in the object as part of kubectl describe, in the events section
 
-#These events are also available in the object as part of kubectl describe, in the events section
+```
 kubectl describe deployment nginx
 kubectl describe replicaset nginx-675d6c6f67
 kubectl describe pods nginx
+```
 
 
-#Clean up our resources
+- Clean up our resources
+
+```
 kubectl delete -f multicontainer.yaml
 kubectl delete deployment nginx
+```
 
+- But the event data is still availble from the cluster's events, even though the objects are gone.
 
-#But the event data is still availble from the cluster's events, even though the objects are gone.
+```
 kubectl get events --sort-by='.metadata.creationTimestamp'
+```
