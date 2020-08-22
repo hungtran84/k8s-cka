@@ -54,9 +54,11 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 ### Join Worker Node
 
+- Get the master node join command
+
 ```
-kubeadm join 10.148.0.45:6443 --token xajzhj.nxp4hh0yjzwnnpsl \
-    --discovery-token-ca-cert-hash sha256:88b44187766f5acc8b652f986cfd8d60d36212e1cecfcf751d74a33e5e7be0ce
+kubeadm join <internal-ip>:6443 --token <token> \
+    --discovery-token-ca-cert-hash sha256:<ca-cert>
 ```
 
 ### Install CNI
