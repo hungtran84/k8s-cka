@@ -38,7 +38,7 @@ apt-mark hold docker-ce kubelet kubeadm
 - Get the public ip node
 
 ```
-kubeadm init --apiserver-cert-extra-sans=<public-ip> --pod-network-cidr=10.244.0.0/16
+kubeadm init --apiserver-cert-extra-sans=<public-ip> --pod-network-cidr=10.244.0.0/16 --kubernetes-version=1.18.6
 ```
 
 ```
