@@ -151,4 +151,6 @@ Config Path
 
 ```
 /etc/kubernetes
+/var/lib/kubelet/config.yaml
+/var/lib/kubelet/kubeadm-flags.env
 ```
