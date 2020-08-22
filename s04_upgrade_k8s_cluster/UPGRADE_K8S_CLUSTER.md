@@ -2,6 +2,11 @@
 
 Use Kubeadm to upgrade a Kubernetes cluster
 
+The upgrade workflow at high level is the following:
+
+Upgrade the control plane node.
+Upgrade worker nodes.
+
 ## Step
 
 Demo upgrade cluster from 1.18.6 -> 1.18.8
