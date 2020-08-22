@@ -6,14 +6,9 @@ Use Kubeadm to create a Kubernetes cluster
 
 ### Install Dependency
 
-- Master node: 
-  * Docker
-  * Kubeadm
-  * Kubelet
-
-- Worker Node
-  * Docker
-  * Kubelet
+- Docker
+- Kubeadm
+- Kubelet
 
 
 ```
@@ -48,8 +43,8 @@ kubeadm init --apiserver-cert-extra-sans=<public-ip> --pod-network-cidr=10.244.0
 
 ```
 mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
+cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
 ### Join Worker Node
@@ -57,8 +52,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 - Get the master node join command
 
 ```
-kubeadm join <internal-ip>:6443 --token <token> \
-    --discovery-token-ca-cert-hash sha256:<ca-cert>
+kubeadm join <internal-ip>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<ca-cert>
 ```
 
 ### Install CNI
