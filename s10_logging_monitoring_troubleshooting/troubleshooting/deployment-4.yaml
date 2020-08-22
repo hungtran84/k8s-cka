@@ -17,6 +17,6 @@ spec:
         image: gcr.io/google-samples/hello-app:1.0
         resources:
           requests:
-            cpu: "1"
+            cpu: "3"
         ports:
         - containerPort: 8080
