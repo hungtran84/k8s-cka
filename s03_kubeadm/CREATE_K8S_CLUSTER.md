@@ -64,7 +64,6 @@ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/2140ac876ef134
 - Deploy nginx
 
 ```
-kubectl run nginx --image=nginx
 kubectl apply -f https://k8s.io/examples/application/deployment.yaml
 ```
 
@@ -91,14 +90,14 @@ kubectl logs -f pod-id
 - Service can access
 
 ```
-kubectl expose deployment nginx --type NodePort --port 80
+kubectl expose deployment nginx-deployment --type NodePort --port 80
 kubectl get services
 ```
 
 - Check access
 
 ```
-curl http://localhost:nodeport
+curl --head http://localhost:nodeport
 ```
 
 - Get node status
