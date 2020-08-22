@@ -37,3 +37,5 @@ kubeadm upgrade apply does the following:
 
 * Fetches the kubeadm ClusterConfiguration from the cluster.
 * Upgrades the kubelet configuration for this node.
+
+gcloud beta compute scp --recurse --zone "asia-southeast1-c" --project "toka02-exam" roo@kind-0:/home /Users/htvo/Documents/toka0
