@@ -63,6 +63,9 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cl
 exclude=kubelet kubeadm kubectl
 EOF
 
+echo "1" > /proc/sys/net/bridge/bridge-nf-call-iptables
+echo '1' > /proc/sys/net/ipv4/ip_forward
+
 # Set SELinux in permissive mode (effectively disabling it)
 setenforce 0
 sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
