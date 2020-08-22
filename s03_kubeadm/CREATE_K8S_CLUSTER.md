@@ -18,30 +18,32 @@ Use Kubeadm to create a Kubernetes cluster
 
 ```
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-    
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-    
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-
 cat << EOF | tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 ```
 
 ```
-apt-get update & apt-get install -y \
-        docker-ce=5:19.03.12~3-0~ubuntu-xenial \
+apt-get update
+apt-get install -y docker-ce=5:19.03.12~3-0~ubuntu-xenial \
         kubelet=1.18.8-00 \
         kubeadm=1.18.8-00 kubectl=1.18.8-00
-    apt-mark hold docker-ce kubelet kubeadm
+```
+
+- To hold the version
+
+```
+apt-mark hold docker-ce kubelet kubeadm
 ```
 
 ### Setup Master Node
+ 
+- Get the public ip node
 
 ```
-kubeadm init \
---apiserver-cert-extra-sans=34.87.187.13 \
---pod-network-cidr=10.244.0.0/16
+kubeadm init --apiserver-cert-extra-sans=<public-ip> --pod-network-cidr=10.244.0.0/16
 ```
 
 ```
