@@ -23,8 +23,8 @@ EOF
 ```
 apt-get update
 apt-get install -y docker-ce=5:19.03.12~3-0~ubuntu-xenial \
-        kubelet=1.18.8-00 \
-        kubeadm=1.18.8-00 kubectl=1.18.8-00
+        kubelet=1.18.6-00 \
+        kubeadm=1.18.6-00 kubectl=1.18.6-00
 ```
 
 - To hold the version
@@ -110,4 +110,30 @@ kubectl get nodes
 
 ```
 kubectl describe pods
+```
+
+## Clean up
+
+### Remove Worker Node
+
+```
+kubectl drain <node_name> --delete-local-data --force --ignore-daemonsets
+```
+
+- On Worker Node
+
+```
+kubeadm reset
+```
+
+- Then remove node
+
+```
+kubectl delete <node_name>
+```
+
+### Clean up Control Plane
+
+```
+kubeadm reset
 ```

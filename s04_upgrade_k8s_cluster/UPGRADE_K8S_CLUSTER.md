@@ -4,6 +4,8 @@ Use Kubeadm to upgrade a Kubernetes cluster
 
 ## Step
 
+Demo upgrade cluster from 1.18.6 -> 1.18.8
+
 - Get the version of the api server
 
 ```
@@ -28,13 +30,13 @@ kubectl get po [controller_pod_name] -o yaml -n kube-system
 sudo apt-mark unhold kubeadm kubelet
 ```
 
-- Install version 1.16.6 of kubeadm
+- Install version 1.18.8 of kubeadm
 
 ```
-sudo apt install -y kubeadm=1.16.6-00
+sudo apt install -y kubeadm=1.18.8-00
 ```
 
-- Hold the version of kubeadm at 1.16.6
+- Hold the version of kubeadm at 1.18.8
 
 ```
 sudo apt-mark hold kubeadm
@@ -59,7 +61,7 @@ kubeadm upgrade plan
 - Upgrade the controller components
 
 ```
-kubeadm upgrade apply v1.16.6
+kubeadm upgrade apply v1.18.8
 ```
 
 - Release the hold on the version of kubectl
@@ -71,22 +73,22 @@ apt-mark unhold kubectl
 - Upgrade kubectl
 
 ```
-apt-install -y kubectl=1.16.6-00
+apt-install -y kubectl=1.18.8-00
 ```
 
-- Hold the version of kubectl at 1.16.6
+- Hold the version of kubectl at 1.18.8
 
 ```
 apt-mark hold kubectl
 ```
 
-- Upgrade kubelet to 1.16.6
+- Upgrade kubelet to 1.18.8
 
 ```
-apt install -y kubelet=1.16.6-00
+apt-get install -y kubelet=1.18.8-00
 ```
 
-- hold the version of kubelet at 1.16.6
+- Hold the version of kubelet at 1.18.8
 
 ```
 apt-mark hold kubelet
