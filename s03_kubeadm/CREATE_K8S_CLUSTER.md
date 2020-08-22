@@ -10,6 +10,12 @@ Use Kubeadm to create a Kubernetes cluster
 - Kubeadm
 - Kubelet
 
+* Note: for Centos:
+
+- Disable selinux
+- Disable swap
+- Disable Firewall
+
 
 ```
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
