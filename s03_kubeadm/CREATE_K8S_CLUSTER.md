@@ -1,0 +1,116 @@
+# Kubeadm
+
+Use Kubeadm to create a Kubernetes cluster
+
+## Setup
+
+### Install Dependency
+
+- Master node: 
+  * Docker
+  * Kubeadm
+  * Kubelet
+
+- Worker Node
+  * Docker
+  * Kubelet
+
+
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+    
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+
+cat << EOF | tee /etc/apt/sources.list.d/kubernetes.list
+deb https://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+```
+
+```
+apt-get update & apt-get install -y \
+        docker-ce=5:19.03.12~3-0~ubuntu-xenial \
+        kubelet=1.18.8-00 \
+        kubeadm=1.18.8-00 kubectl=1.18.8-00
+    apt-mark hold docker-ce kubelet kubeadm
+```
+
+### Setup Master Node
+
+```
+kubeadm init \
+--apiserver-cert-extra-sans=34.87.187.13 \
+--pod-network-cidr=10.244.0.0/16
+```
+
+```
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+### Join Worker Node
+
+```
+kubeadm join 10.148.0.45:6443 --token xajzhj.nxp4hh0yjzwnnpsl \
+    --discovery-token-ca-cert-hash sha256:88b44187766f5acc8b652f986cfd8d60d36212e1cecfcf751d74a33e5e7be0ce
+```
+
+### Install CNI
+
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/2140ac876ef134e0ed5af15c65e414cf26827915/Documentation/kube-flannel.yml
+
+### Test
+
+- Deploy nginx
+
+```
+kubectl run nginx --image=nginx
+kubectl apply -f https://k8s.io/examples/application/deployment.yaml
+```
+
+- Verify pod can run
+
+```
+kubectl get pods
+kubectl get deployments
+```
+
+- Verify pods can access directly
+
+```
+kubectl port-forward pods/<pod-id> 8081:80
+curl --head http://localhost:8081
+```
+
+- View logs
+
+```
+kubectl logs -f pod-id
+```
+
+- Service can access
+
+```
+kubectl expose deployment nginx --type NodePort --port 80
+kubectl get services
+```
+
+- Check access
+
+```
+curl http://localhost:nodeport
+```
+
+- Get node status
+
+```
+kubectl get nodes
+```
+
+- Get detail info pods
+
+```
+kubectl describe pods
+```
