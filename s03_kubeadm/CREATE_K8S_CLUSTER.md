@@ -143,3 +143,12 @@ kubectl delete <node_name>
 ```
 kubeadm reset
 ```
+
+
+### Ref
+
+Config Path
+
+```
+/etc/kubernetes
+```
