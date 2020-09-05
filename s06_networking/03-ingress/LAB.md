@@ -269,3 +269,24 @@ kubectl delete secret tls-secret
 ```
 kubectl delete -f nginx-ingress.yaml
 ```
+
+## Troubleshoot
+
+- Check the Nginx Configuration
+
+```
+kubectl get pods -n <namespace-of-ingress-controller>
+kubectl exec -it -n <namespace-of-ingress-controller> nginx-ingress-controller-67956bf89d-fv58j -- cat /etc/nginx/nginx.conf
+```
+
+- Debug logging
+Using the flag --v=XX it is possible to increase the level of logging. This is performed by editing the deployment.
+--v=2 shows details using diff about the changes in the configuration in nginx
+--v=3 shows details about the service, Ingress rule, endpoint changes and it dumps the nginx configuration in JSON format
+--v=5 configures NGINX in debug mode
+
+```
+kubectl edit deploy -n <namespace-of-ingress-controller> nginx-ingress-controller
+Add --v=X to "- args", where X is an integer
+```
+
