@@ -1,19 +1,19 @@
 # StorageClasses and Dynamic Provisioning
 
-Let's create a disk in Azure. Using a dynamic provisioner and storage class
+Let's create a disk. Using a dynamic provisioner and storage class
 
 - Check out our list of available storage classes, which one is default? Notice the Provisioner, Parameters and ReclaimPolicy.
 
 ```
 kubectl get StorageClass
-kubectl describe StorageClass managed-premium
+kubectl describe StorageClass <>
 ```
 
 let's create a Deployment of an nginx pod with a ReadWriteOnce disk, 
 we create a PVC and a Deployment that creates Pods that use that PVC
 
 ```
-kubectl apply -f AzureDisk.yaml
+kubectl apply -f DeploymentDisk.yaml
 ```
 
 - Check out the Access Mode, Reclaim Policy, Status, Claim and StorageClass
