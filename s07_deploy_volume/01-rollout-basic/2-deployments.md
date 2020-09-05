@@ -1,4 +1,4 @@
-# Demo 2 - Updating to a non-existent image. 
+# Updating to a non-existent image. 
 
 - Delete any current deployments, because we're interested in the deploy state changes.
 
@@ -95,7 +95,7 @@ kubectl delete service hello-world
 ```
 
 
-# Demo 3 - Controlling the rate and update strategy of a Deployment update.
+# Controlling the rate and update strategy of a Deployment update.
 
 - Let's deploy a Deployment with Readiness Probes
 

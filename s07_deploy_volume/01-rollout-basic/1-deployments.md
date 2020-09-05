@@ -1,4 +1,4 @@
-# Demo 1 - Updating a Deployment and checking our rollout status
+# Updating a Deployment and checking our rollout status
 
 - Let's start off with rolling out v1
 
