@@ -41,33 +41,3 @@ kubectl delete deployment nginx-azdisk-deployment
 kubectl delete PersistentVolumeClaim pvc-azure-managed
 ```
 
-
-
-#Demo 2 - Defining a custom StorageClass in Azure
-kubectl apply -f CustomStorageClass.yaml
-
-
-#Get a list of the current StorageClasseskubectl get StorageClass.
-kubectl get StorageClass
-
-#A closer look at the SC, you can see the Reclaim Policy is Delete since we didn't set it in our StorageClass yaml
-kubectl describe StorageClass managed-standard-ssd
-
-
-#Let's use our new StorageClass
-kubectl apply -f AzureDiskCustomStorageClass.yaml
-
-
-#And take a closer look at our new Storage Class, Reclaim Policy Delete
-kubectl get PersistentVolumeClaim
-kubectl get PersistentVolume
-
-
-#Clean up our demo resources
-kubectl delete deployment nginx-azdisk-deployment-standard-ssd
-kubectl delete PersistentVolumeClaim pvc-azure-standard-ssd
-kubectl delete StorageClass managed-standard-ssd
-
-
-#Switch back to our local cluster from Azure
-kubectl config use-context kubernetes-admin@kubernetes
