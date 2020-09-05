@@ -275,8 +275,8 @@ kubectl delete -f nginx-ingress.yaml
 - Check the Nginx Configuration
 
 ```
-kubectl get pods -n <namespace-of-ingress-controller>
-kubectl exec -it -n <namespace-of-ingress-controller> nginx-ingress-controller-67956bf89d-fv58j -- cat /etc/nginx/nginx.conf
+kubectl get pods -n ingress-nginx
+kubectl exec -it -n ingress-nginx nginx-ingress-controller-67956bf89d-fv58j -- cat /etc/nginx/nginx.conf
 ```
 
 - Debug logging
@@ -286,7 +286,7 @@ Using the flag --v=XX it is possible to increase the level of logging. This is p
 --v=5 configures NGINX in debug mode
 
 ```
-kubectl edit deploy -n <namespace-of-ingress-controller> nginx-ingress-controller
+kubectl edit deploy -n ingress-nginx nginx-ingress-controller
 Add --v=X to "- args", where X is an integer
 ```
 
