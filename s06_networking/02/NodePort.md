@@ -10,6 +10,7 @@ kubectl create deployment hello-world-nodeport --image=gcr.io/google-samples/hel
 
 ```
 kubectl expose deployment hello-world-nodeport --port=80 --target-port=8080 --type NodePort
+```
 
 - Get a list of services, examine the Type, CLUSTER-IP and NodePort...
 
@@ -36,5 +37,5 @@ kubectl run bb -it --rm --image radial/busyboxplus:curl --restart Never -- curl 
 - And we can access the service by hitting the node port on ANY node in the cluster on the Node's Real IP or Name.
 
 ```
-curl http://NODE_IP:$NODEPORT
+curl http://$NODE_IP:$NODEPORT
 ```
