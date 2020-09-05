@@ -170,7 +170,7 @@ kubectl rollout status deployment hello-world
 kubectl describe deployment hello-world
 ```
 
-- Let's look at our ReplicaSets, no Pods in the new RS 67844877b6 are READY, but 4 our deployed.
+- Let's look at our ReplicaSets, no Pods in the new RS are READY, but 4 our deployed.
 That RS with Desired 0 is from our V1 deployment, 18 is from our V2 deployment.
 
 ```
