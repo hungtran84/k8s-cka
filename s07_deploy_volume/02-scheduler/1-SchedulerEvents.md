@@ -90,7 +90,9 @@ The next pod coming along wants 1 whole core, and tha'ts not available.
 The scheduler can't find a place in this cluster to place our workload...is this good or bad?
 
 ```
-kubectl describe node c1-node1
+kubectl get nodes
+kubectl describe nodes
+kubectl describe node <node-id>
 ```
 
 - Clean up after this demo
