@@ -31,6 +31,12 @@ echo $SERVICEIP
 kubectl run bb -it --rm --image radial/busyboxplus:curl --restart Never -- curl http://$SERVICEIP
 ```
 
+Or using service name. Fullname should be: <service-name>.<namepsace>
+
+```
+kubectl run bb -it --rm --image radial/busyboxplus:curl --restart Never -- curl http://hello-world-clusterip
+```
+
 - Get a list of the endpoints for a service.
 
 ```
