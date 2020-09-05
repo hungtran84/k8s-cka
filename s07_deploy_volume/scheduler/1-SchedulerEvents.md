@@ -1,31 +1,46 @@
-#Demo 1 - Finding scheduling information
-#Let's create a deployment with three replicas
+# Finding scheduling information
+
+- Let's create a deployment with three replicas
+
+```
 kubectl apply -f deployment.yaml
+```
 
+- Pods spread out evenly across the Nodes due to our scoring functions for selector spread during Scoring.
 
-#Pods spread out evenly across the Nodes due to our scoring functions for selector spread during Scoring.
+```
 kubectl get pods -o wide
+```
 
+- We can look at the Pods events to see the scheduler making its choice
 
-#We can look at the Pods events to see the scheduler making its choice
+```
 kubectl describe pods 
+```
 
+- If we scale our deployment to 6...
 
-#If we scale our deployment to 6...
+```
 kubectl scale deployment hello-world --replicas=6
+```
 
+- We can see that the scheduler works to keep load even across the nodes.
 
-#We can see that the scheduler works to keep load even across the nodes.
+```
 kubectl get pods -o wide
+```
 
+- We can see the nodeName populated for this node
 
-#We can see the nodeName populated for this node
+```
 kubectl get pods hello-world-[tab][tab] -o yaml
+```
 
+- Clean up this demo...and delete its resources
 
-#Clean up this demo...and delete its resources
+```
 kubectl delete deployment hello-world
-
+```
 
 
 
