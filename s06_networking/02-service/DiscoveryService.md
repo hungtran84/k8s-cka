@@ -48,13 +48,13 @@ kubectl get svc hello-world-api
 
 ```
 kubectl run bb -it --rm --image busybox -- bin/sh
-/ # nslookup hello-world-api.default.svc.cluster.local 10.0.0.10
+/ # nslookup hello-world-api.default.svc.cluster.local 10.116.0.10
 ```
 
 Example output:
 ```
 Server:         10.0.0.10
-Address:        10.0.0.10:53
+Address:        10.0.0.10:53hello-world-api
 
 hello-world-api.default.svc.cluster.local       canonical name = hello-world.api.example.com
 ```

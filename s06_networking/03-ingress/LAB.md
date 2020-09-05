@@ -173,7 +173,7 @@ Hostname: hello-world-service-blue-7647475b7-hzcn9
 curl http://$INGRESSIP/ --header 'Host: tel4vn.edu.vn'
 ```
 
-## LS
+## TLS
 
 - Generate a certificate
 
