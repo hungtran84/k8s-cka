@@ -37,5 +37,6 @@ kubectl run bb -it --rm --image radial/busyboxplus:curl --restart Never -- curl 
 - And we can access the service by hitting the node port on ANY node in the cluster on the Node's Real IP or Name.
 
 ```
-curl http://$NODE_IP:$NODEPORT
+kubectl get nodes -o wide
+curl http://<EXTERNAL-IP>:$NODEPORT
 ```
