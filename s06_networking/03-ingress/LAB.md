@@ -81,7 +81,7 @@ kubectl describe ingress ingress-single
 - Access the application via the exposed ingress on the public IP
 
 ```
-INGRESSIP=$(kubectl get ingress -o jsonpath='{ .items[].status.loadBalancer.ingress[0].ip }')
+INGRESSIP=<EXTERNAL-IP>
 curl http://$INGRESSIP
 ```
 
