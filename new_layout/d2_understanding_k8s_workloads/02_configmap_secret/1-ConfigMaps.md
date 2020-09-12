@@ -92,7 +92,7 @@ kubectl delete configmap appconfigprod
 kubectl delete configmap appconfigqa
 ```
 
-# Additional examples of using secrets in your Pods
+# Additional examples of using configmap in your Pods
 
 
 - Reading from a directory, each file's basename will be a key in the ConfigMap...but you can define a key if needed
