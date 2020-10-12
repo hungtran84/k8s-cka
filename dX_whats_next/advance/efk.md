@@ -1,4 +1,4 @@
-# How To Set Up an Elasticsearch, Fluentd and Kibana (EFK) Logging Stack on Kubernetes | DigitalOcean
+# How To Set Up an Elasticsearch, Fluentd and Kibana (EFK)
 
 
 ![How%20To%20Set%20Up%20an%20Elasticsearch,%20Fluentd%20and%20Kibana%20c4eadf4b6740434687b0958ade5ef5c9/kubernetes_tutorials.png](How%20To%20Set%20Up%20an%20Elasticsearch,%20Fluentd%20and%20Kibana%20c4eadf4b6740434687b0958ade5ef5c9/kubernetes_tutorials.png)
@@ -660,7 +660,7 @@ You can now move on to rolling out the final component of the EFK stack: the log
 
 In this guide, we’ll set up Fluentd as a DaemonSet, which is a Kubernetes workload type that runs a copy of a given Pod on each Node in the Kubernetes cluster. Using this DaemonSet controller, we’ll roll out a Fluentd logging agent Pod on every node in our cluster. To learn more about this logging architecture, consult “[Using a node logging agent](https://kubernetes.io/docs/concepts/cluster-administration/logging/#using-a-node-logging-agent)” from the official Kubernetes docs.
 
-In Kubernetes, containerized applications that log to `stdout` and `stderr` have their log streams captured and redirected to JSON files on the nodes. The Fluentd Pod will tail these log files, filter log events, transform the log data, and ship it off to the Elasticsearch logging backend we deployed in [Step 2](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-elasticsearch-fluentd-and-kibana-efk-logging-stack-on-kubernetes#step-2-%E2%80%94-creating-the-elasticsearch-statefulset).
+In Kubernetes, containerized applications that log to `stdout` and `stderr` have their log streams captured and redirected to JSON files on the nodes.
 
 In addition to container logs, the Fluentd agent will tail Kubernetes system component logs like kubelet, kube-proxy, and Docker logs. To see a full list of sources tailed by the Fluentd logging agent, consult the `[kubernetes.conf](https://github.com/fluent/fluentd-kubernetes-daemonset/blob/master/docker-image/v0.12/debian-elasticsearch/conf/kubernetes.conf)` file used to configure the logging agent. To learn more about logging in Kubernetes clusters, consult “[Logging at the node level](https://kubernetes.io/docs/concepts/cluster-administration/logging/#logging-at-the-node-level)” from the official Kubernetes documentation.
 

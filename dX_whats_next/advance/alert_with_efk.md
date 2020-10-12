@@ -1,16 +1,12 @@
 # Alerting on Kubernetes Events with EFK Stack
 
-Link: https://akomljen.com/alerting-on-kubernetes-events-with-efk-stack/
-
 ![jeremy-yap-PQWDsr78l8w-unsplash.jpg](Alerting%20on%20Kubernetes%20Events%20with%20EFK%20Stack%20e7e70d27464b4128902b560ec2051939/jeremy-yap-PQWDsr78l8w-unsplash.jpg)
-
-**Last update:** November 03, 2019
 
 You probably care about gathering application logs only. Still, since the application is running on Kubernetes, you could get a lot of information about what is happening in the cluster by gathering events as well. Whatever happens inside the cluster, an event is recorded. You can check those events with `kubectl events`, but they are short-lived. To search or alert on a particular activity, you need to store them in a central place first. Now, let's see how to do that and then how to configure alerts.
 
 ### Storing Events In Elasticsearch
 
-The main requirement for this setup is the Elasticsearch cluster. If you don't know how to run EFK stack on Kubernetes, I suggest that you go through my post *[Get Kubernetes Logs with EFK Stack in 5 Minutes](https://akomljen.com/get-kubernetes-logs-with-efk-stack-in-5-minutes/)* to learn more about it. If you already use my helm chart to deploy EFK stack, you should know that [I improved it](https://github.com/komljen/helm-charts/commit/ff35598cba0696ba9ac30761be03f4339385da94) and added a switch to enable gathering events as well. However, if you already have your "version" of the EFK cluster, you could install Elastic's [Metricbeat](https://www.elastic.co/products/beats/metricbeat) agent and configure it to ship events to that cluster instead. So, assuming you already have EFK stack, go ahead and install Metricbeat with helm:
+The main requirement for this setup is the Elasticsearch cluster. So, assuming you already have EFK stack, go ahead and install Metricbeat with helm:
 
 ```
 $ cat > values-metricbeat.yaml<<EOF 
