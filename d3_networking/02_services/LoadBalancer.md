@@ -26,5 +26,3 @@ kubectl get svc hello-world-loadbalancer
 LOADBALANCERIP=$(kubectl get service hello-world-loadbalancer -o jsonpath='{ .status.loadBalancer.ingress[].ip }')
 curl http://$LOADBALANCERIP:$PORT
 ```
-
-#Have a look at the cloud load balancer

@@ -84,7 +84,7 @@ kubectl delete deployment hello-world
 ```
 
 
-####Additional examples including formatting and sorting examples####
+## Additional examples including formatting and sorting examples####
 
 - Let's use the range operator to print a new line for each object in the list
 

@@ -91,7 +91,6 @@ curl http://$INGRESSIP
 ```
 kubectl create deployment hello-world-service-blue --image=gcr.io/google-samples/hello-app:1.0
 kubectl create deployment hello-world-service-red  --image=gcr.io/google-samples/hello-app:1.0
-
 kubectl expose deployment hello-world-service-blue --port=4343 --target-port=8080 --type=ClusterIP
 kubectl expose deployment hello-world-service-red  --port=4242 --target-port=8080 --type=ClusterIP
 ```
@@ -115,7 +114,7 @@ ingress-single   *                  52.227.171.191   80      13m
 ```
 
 
-- tada!!!
+- Tada!!!
 
 ```
 curl http://$INGRESSIP/red  --header 'Host: path.example.com'

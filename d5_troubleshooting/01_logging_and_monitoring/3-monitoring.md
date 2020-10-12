@@ -1,12 +1,18 @@
-#Get the Metrics Server deployment manifest from github, the release version may change
-#https://github.com/kubernetes-sigs/metrics-server
+# Monitoring
+
+Get the Metrics Server deployment manifest from github, the release version may change
+https://github.com/kubernetes-sigs/metrics-server
+
+```
 wget https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
+```
 
+Add these two lines to metrics server's container args, around line 90
 
-#Add these two lines to metrics server's container args, around line 90
-# - --kubelet-insecure-tls
-# - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
-
+```
+--kubelet-insecure-tls
+--kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+```
 
 - Deploy the manifest for the Metrics Server
 

@@ -179,7 +179,7 @@ sudo systemctl status kubelet.service
 exit
 ```
 
-- check our Nodes' statuses
+- Check our Nodes' statuses
 
 ```
 kubectl get nodes

@@ -1,4 +1,4 @@
-# 1 - Troubleshooting Pods
+# Troubleshooting Pods
 
 - Create the deployment we want to troubleshoot
 
@@ -70,7 +70,7 @@ kubectl delete -f deployment-1-corrected.yaml
 
 
 
-# 2 - Troubleshooting Deployments
+# Troubleshooting Deployments
 
 - Create the deployment we want to troubleshoot
 
@@ -126,7 +126,7 @@ kubectl delete -f deployment-2-corrected.yaml
 ```
 
 
-# 3 - Storage - Failure to access persistant volume storage
+# Storage - Failure to access persistant volume storage
 
 - You'll need the NFS server that we configured in the course 'Configuring and Managing Kubernetes Storage and Scheduling' for this demo
 
@@ -175,7 +175,7 @@ kubectl delete -f deployment-3-corrected.yaml
 ```
 
 
-# 4 - Scheduling
+# Scheduling
 
 - Create the deployment we want to troubleshoot
 
@@ -242,7 +242,7 @@ kubectl get pods
 kubectl delete -f deployment-4-corrected.yaml
 ```
 
-# 5 - Services - mismatching service selector and labels
+# Services - mismatching service selector and labels
 
 - Create the deployment we want to troubleshoot
 

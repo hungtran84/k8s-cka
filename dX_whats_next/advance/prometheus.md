@@ -1,18 +1,9 @@
-# Kubernetes Monitoring with Prometheus -The ultimate guide (part 1). | Sysdig
+# Kubernetes Monitoring with Prometheus
 
-[Prometheus monitoring](https://sysdig.com/products/monitor/prometheus-monitoring/) is fast becoming one of the Docker and Kubernetes monitoring tool to use. This guide explains how to implement Kubernetes monitoring with Prometheus. You will learn how to deploy Prometheus server, metrics exporters, setup kube-state-metrics, pull, scrape and collect metrics, configure alerts with Alertmanager and dashboards with Grafana. We’ll cover how to do this manually as well as by leveraging some of the automated deployment/install methods like Prometheus operators.
+Prometheus monitoring is fast becoming one of the Docker and Kubernetes monitoring tool to use. This guide explains how to implement Kubernetes monitoring with Prometheus. You will learn how to deploy Prometheus server, metrics exporters, setup kube-state-metrics, pull, scrape and collect metrics, configure alerts with Alertmanager and dashboards with Grafana. We’ll cover how to do this manually as well as by leveraging some of the automated deployment/install methods like Prometheus operators.
 
 ![Kubernetes%20Monitoring%20with%20Prometheus%20-The%20ultimat%2082266822e1cb41289181ee0cdf99c8b7/Kubernetes-Monitoring-Guide.jpg](Kubernetes%20Monitoring%20with%20Prometheus%20-The%20ultimat%2082266822e1cb41289181ee0cdf99c8b7/Kubernetes-Monitoring-Guide.jpg)
 
-This guide is comprised of four parts:
-
-**1 –** (this one)
-
-**2 –** [How to configure and run additional components of the Prometheus stack inside Kubernetes: Alertmanager, Push gateway, Grafana, external storage, alert receivers.](https://sysdig.com/blog/kubernetes-monitoring-with-prometheus-alertmanager-grafana-pushgateway-part-2/)
-
-**3 –** The Prometheus operator, Custom Resource Definitions, fully automated Kubernetes deployment for Prometheus, AlertManager and Grafana.
-
-**4 –** Prometheus performance considerations, high availability, external storage, dimensionality limits.
 
 ### Why Use Prometheus for Kubernetes Monitoring
 
@@ -35,7 +26,7 @@ Why Prometheus Is the Right Tool for Containerized Environments
 
 Prometheus released version 1.0 during 2016, so it’s a fairly recent technology. There were a wealth of tried-and-tested monitoring tools available when Prometheus first appeared. How does Prometheus compare with other veteran monitoring projects?
 
-**Key-value vs dot-separated dimensions:** Several engines like StatsD/Graphite use an explicit [dot-separated format to express dimensions](https://sysdig.com/blog/prometheus-metrics/#prometheus-metrics-format-dot-metrics-vs-tagged-metrics), effectively generating a new metric per label:
+**Key-value vs dot-separated dimensions:** Several engines like StatsD/Graphite use an explicit, effectively generating a new metric per label:
 
 ```
 current_active_users.free_tier = 423

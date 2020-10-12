@@ -1,4 +1,4 @@
-# StorageClasses and Dynamic Provisioning
+## StorageClasses and Dynamic Provisioning
 
 Let's create a disk. Using a dynamic provisioner and storage class
 

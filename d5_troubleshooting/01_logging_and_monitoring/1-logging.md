@@ -1,4 +1,4 @@
-# 1 - Pods
+# Pods
 
 - Check the logs for a single container pod.
 
@@ -109,8 +109,7 @@ kubectl get pods --namespace kube-system
 ```
 
 
-- We can retrieve the logs for the control plane pods by using kubectl logs. This info is coming from the API server over kubectl, 
-it instructs the kubelet will read the log from the node and send it back to you over stdout
+- We can retrieve the logs for the control plane pods by using kubectl logs. This info is coming from the API server over kubectl, it instructs the kubelet will read the log from the node and send it back to you over stdout
 
 ```
 kubectl logs --namespace kube-system kube-apiserver-master-asia-southeast1-a-z043

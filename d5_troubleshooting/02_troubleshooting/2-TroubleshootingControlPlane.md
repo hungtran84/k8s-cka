@@ -1,4 +1,4 @@
-# 1 - Control Plane Pods Stopped
+# Control Plane Pods Stopped
 
 - Remember the master still has a kubelet and runs pods...if the kubelet's not running then troubleshoot that first.
 This section focuses on the control plane when it's running the control plane as pods
@@ -65,7 +65,7 @@ kubectl get pods -n kube-system
 ```
 
 
-# 2 - Troubleshooting control plane failure, user Pods are all pending.
+# Troubleshooting control plane failure, user Pods are all pending.
 
 - Jump into master and Break the control plane
 
