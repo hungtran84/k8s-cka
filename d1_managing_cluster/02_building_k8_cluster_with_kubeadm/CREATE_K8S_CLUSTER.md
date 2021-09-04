@@ -63,9 +63,11 @@ kubeadm join <internal-ip>:6443 --token <token> --discovery-token-ca-cert-hash s
 
 ### Install CNI
 
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/2140ac876ef134e0ed5af15c65e414cf26827915/Documentation/kube-flannel.yml
+```
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+```
 
-### Test
+### End-to-end Test
 
 - Deploy nginx
 
