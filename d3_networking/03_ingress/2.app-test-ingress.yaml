@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: app
+  namespace: ingress-controller
+spec:
+  rules:
+    # Tên miền truy cập
+  - host: kube1.do.class
+    http:
+      paths:
+      - path: /
+        backend:
+          # dịch vụ phục vụ tương ứng với tên miền và path
+          serviceName: http-test-svc
+          servicePort: 80

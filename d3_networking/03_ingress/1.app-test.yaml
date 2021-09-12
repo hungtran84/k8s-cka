@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: http-test-svc
+  # dịch vụ này tạo tại namespace có Haproxy Ingress
+  namespace: ingress-controller
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: http-test-app
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: http-test-svc
+  name: http-test-svc
+  # Deploy này tạo tại namespace có Haproxy Ingress
+  namespace: ingress-controller
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: http-test-app
+  template:
+    metadata:
+      labels:
+        run: http-test-app
+    spec:
+      containers:
+      - image: nginx
+        imagePullPolicy: IfNotPresent
+        name: http
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        resources: {}
