@@ -13,7 +13,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-azdisk-deployment
+  name: nginx-gcp-deployment
 spec:  
   replicas: 1
   selector:
@@ -27,7 +27,7 @@ spec:
       volumes:
       - name: webcontent
         persistentVolumeClaim:
-          claimName: pvc-managed
+          claimName: my-volume
       containers:
       - name: nginx
         image: nginx
