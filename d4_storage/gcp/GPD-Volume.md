@@ -1,19 +1,17 @@
 ## StorageClasses and Dynamic Provisioning
 
-Let's create a disk. Using a dynamic provisioner and storage class
-
 - Check out our list of available storage classes, which one is default? Notice the Provisioner, Parameters and ReclaimPolicy.
 
 ```
 kubectl get StorageClass
-kubectl describe StorageClass <>
+kubectl describe StorageClass
 ```
 
 let's create a Deployment of an nginx pod with a ReadWriteOnce disk, 
 we create a PVC and a Deployment that creates Pods that use that PVC
 
 ```
-kubectl apply -f DeploymentDisk.yaml
+kubectl apply -f GCPDeploymentDisk.yaml
 ```
 
 - Check out the Access Mode, Reclaim Policy, Status, Claim and StorageClass
@@ -34,10 +32,10 @@ kubectl get PersistentVolumeClaim
 kubectl get pods
 ```
 
-- Clean up when we're finished and set our context back to our local cluster
+- Clean up when we're finished
 
 ```
-kubectl delete deployment nginx-azdisk-deployment
-kubectl delete PersistentVolumeClaim pvc-azure-managed
+kubectl delete deployment nginx-gcp-deployment
+kubectl delete PersistentVolumeClaim my-volume
 ```
 
