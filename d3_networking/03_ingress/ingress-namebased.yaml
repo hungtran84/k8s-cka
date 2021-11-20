@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-namebased
+  name: ingress-namebased-red
 spec:
   rules:
   - host: red.example.com
@@ -19,7 +19,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-namebased
+  name: ingress-namebased-blue
 spec:
   rules:
   - host: blue.example.com
