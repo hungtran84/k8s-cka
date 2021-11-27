@@ -27,8 +27,6 @@ kubectl get pods -v 6
 rm admin.crt
 ```
 
-
-
 ### Working with Service Accounts
 
 - Getting Service Accounts information
