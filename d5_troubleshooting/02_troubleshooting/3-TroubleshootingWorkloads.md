@@ -2,10 +2,9 @@
 
 - Create the deployment we want to troubleshoot
 
-```
+```shell
 kubectl apply -f deployment-1.yaml
 ```
-
 
 - Scenario:
 You get a call from a user that says none of their pods are up and running can you help?
@@ -15,13 +14,13 @@ You get a call from a user that says none of their pods are up and running can y
 - If no pods are up and running we need to find out why...
 No pods are Ready...0/3. 
 
-```
+```shell
 kubectl get deployment
 ```
 
 - If no pods are running let's look at the pods more closely
 
-```
+```shell
 kubectl get pods 
 ```
 
@@ -31,20 +30,20 @@ Check out the events for more information:
 Failed to pull image "gcr.io/google-samples/hello-ap:1.0": rpc error: code = Unknown desc = Error response from daemon: manifest for gcr.io/google-samples/hello-ap:1.0 not found
 It's hello-ap rather than hello-app. 
 
-```
+```shell
 kubectl describe pods 
 ```
 
 - We can also look at the events to get this information
 
-```
+```shell
 kubectl get events --sort-by='.metadata.creationTimestamp'
 ```
 
 - DECLARATIVE SOLUTION:
 Apply the corrected manifest which points to the correct image
 
-```
+```shell
 kubectl apply -f deployment-1-corrected.yaml
 ```
 
@@ -52,29 +51,27 @@ kubectl apply -f deployment-1-corrected.yaml
 Change:       - image: gcr.io/google-samples/hello-ap:1.0
 To:           - image: gcr.io/google-samples/hello-app:1.0
 
-```
+```shell
 kubectl edit deployment hello-world-1
 ```
 
 - 3 of 3 should be up and ready!
 
-```
+```shell
 kubectl get deployment
 ```
 
 - Clean up this demo before moving on.
 
-```
+```shell
 kubectl delete -f deployment-1-corrected.yaml
 ```
-
-
 
 # Troubleshooting Deployments
 
 - Create the deployment we want to troubleshoot
 
-```
+```shell
 kubectl apply -f deployment-2.yaml
 ```
 
@@ -82,7 +79,7 @@ kubectl apply -f deployment-2.yaml
 You get a call...the pods are up but none are reporting 'Ready' and the app isn't accesible.
 Start troubleshooting by looking at why the Pods aren't Ready...all pods are 0/1 Ready meaning the container in the pod isn't ready.
 
-```
+```shell
 kubectl get pods 
 ```
 
@@ -90,7 +87,7 @@ kubectl get pods
 What port is the Container Port? What is the Port configured in the Readiness Probe? Do they match?
 Readiness probe failed: Get http://192.168.222.225:8081/index.html: dial tcp 192.168.222.225:8081: connect: connection refused
 
-```
+```shell
 kubectl describe pods 
 ```
 
@@ -98,7 +95,7 @@ kubectl describe pods
 Deploy the corrected readiness probe
 This will cause a rollout since the pod spec changed.
 
-```
+```shell
 kubectl apply -f deployment-2-corrected.yaml
 ```
 
@@ -108,20 +105,19 @@ In the readinessProbe
 CHANGE:             port: 8081
 To:                 port: 8080
 
-```
+```shell
 kubectl edit deployment hello-world-2
 ```
 
 - Check the Pods, all should be 1/1 Ready.
 
-```
+```shell
 kubectl get pods
 ```
 
-
 - Clean up this demo
 
-```
+```shell
 kubectl delete -f deployment-2-corrected.yaml
 ```
 
@@ -132,7 +128,7 @@ kubectl delete -f deployment-2-corrected.yaml
 
 - Create the deployment we want to troubleshoot
 
-```
+```shell
 kubectl apply -f deployment-3.yaml
 ```
 
@@ -140,46 +136,45 @@ kubectl apply -f deployment-3.yaml
 You get a call...the pod is scheduled but it is stuck in ContainerCreating Status
 Start troubleshooting...by check out the Pods state...ContainerCreated...ok let's check out the events
 
-```
+```shell
 kubectl get pods 
 ```
 
 - Describe pods
 
-```
+```shell
 kubectl describe pods 
 ```
 
 - We can also look at the events to get this information
 
-```
+```shell
 kubectl get events --sort-by='.metadata.creationTimestamp'
 ```
 
-- SOLUTION: 
+- SOLUTION:
 
-```
+```shell
 kubectl apply -f deployment-3-corrected.yaml
 ```
 
 - This should be up and Running
 
-```
+```shell
 kubectl get pods 
 ```
 
 - Clean up this demo
 
-```
+```shell
 kubectl delete -f deployment-3-corrected.yaml
 ```
-
 
 # Scheduling
 
 - Create the deployment we want to troubleshoot
 
-```
+```shell
 kubectl apply -f deployment-4.yaml
 ```
 
@@ -187,7 +182,7 @@ kubectl apply -f deployment-4.yaml
 Start troubleshooting...check out the pods
 3 of the 6 pods are pending...why? We should look at the scheduler
 
-```
+```shell
 kubectl get pods -o wide
 ```
 
@@ -195,13 +190,13 @@ Get scheduler events...scroll up do you see any errors?
 Look for Warnings and Failures...
 0/4 nodes are available: 1 node(s) had taint {node-role.kubernetes.io/master: }, that the pod didn't tolerate, 3 Insufficient cpu
 
-```
+```shell
 kubectl get events --sort-by='.metadata.creationTimestamp'
 ```
 
 - Let's check out the Pods...what are the CPU Requests? It's current set to 1. How many CPUs are allocatable on the Node? Let's look at the Node for that
 
-```
+```shell
 kubectl describe pods
 ```
 
