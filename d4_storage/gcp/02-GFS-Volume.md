@@ -11,7 +11,7 @@ gcloud filestore instances create nfs-server \
     --network=name="default"
 ```
 
-Get the IP Address of Google Filestore
+- Get the IP Address of Google Filestore
 
 ```bash
 gcloud filestore instances list
