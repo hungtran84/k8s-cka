@@ -41,5 +41,10 @@ docker-compose up -d
 - Change application code to view the live update
 
 ```
-
+sed -i 's/students/users/g' app.py
 ```
+
+- Refresh browser to see the update
+
+![lab01-3](https://github.com/hungtran84/k8s-cka/assets/30172743/4a9a86e9-0d67-4a49-8450-76de8ceb6311)
+
