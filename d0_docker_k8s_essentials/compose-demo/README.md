@@ -31,6 +31,9 @@ docker-compose up -d
 ```
 
 - Access your application using `playwithdocker` UI
+![lab01-1](https://github.com/hungtran84/k8s-cka/assets/30172743/e3e0c62b-bc4a-4ceb-afd0-60c973aae952)
+
+![lab01-2](https://github.com/hungtran84/k8s-cka/assets/30172743/57b2427c-865d-436e-ada4-b41fc7e3897a)
 
 - Change application code to view the live update
 
