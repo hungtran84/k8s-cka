@@ -56,3 +56,15 @@ node1   Ready    control-plane   79s   v1.27.2
 node2   Ready    <none>          23s   v1.27.2
 node3   Ready    <none>          10s   v1.27.2
 ```
+
+## Deploy nginx app
+
+```
+kubectl apply -f https://raw.githubusercontent.com/hungtran84/k8s-cka/master/d1_managing_cluster/01_exploring_k8_architecture/nginx-app.yaml
+```
+
+## Access nginx web app
+
+```
+curl http://localhost:30007
+```
