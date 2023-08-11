@@ -90,13 +90,20 @@ kubectl explain pods | more
 - Creating a pod with YAML
 ```
 kubectl apply -f pod.yaml
+```
 
-#Let's look more closely at what we need in pod.spec and pod.spec.containers
+- Let's look more closely at what we need in `pod.spec` and `pod.spec.containers`
+```
 kubectl explain pod.spec | more
 kubectl explain pod.spec.containers | more
+```
 
-#Get a list of our currently running pods
+- Get a list of our currently running pods
+```
 kubectl get pod 
+```
 
-#Remove our pod
+- Remove our pod
+```
 kubectl delete pod hello-world
+```
