@@ -2,7 +2,7 @@
 
 - Fetch the latest code from course repo
 ```
-git clone https://github.com/hungtran84/k8s-cka.git
+git clone https://github.com/hungtran84/k8s-cka.git 
 cd k8s-cka/d2_managing_api_server/01_using_k8s_api/
 ```
 
