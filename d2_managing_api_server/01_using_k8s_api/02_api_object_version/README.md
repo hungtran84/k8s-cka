@@ -1,26 +1,5 @@
-# API Objects
-
-- Fetch the latest code from course repo
-```
-git clone https://github.com/hungtran84/k8s-cka.git
-cd k8s-cka/d2_managing_api_server/01_using_k8s_api/01_api_object
-```
-
-- Get information about our current context, ensure we're logged into the correct cluster.
-```
-kubectl config get-contexts
-
-CURRENT   NAME                          CLUSTER      AUTHINFO           NAMESPACE
-*         kubernetes-admin@kubernetes   kubernetes   kubernetes-admin 
-```
-
-- Change our context if needed.
-```
-kubectl config use-context kubernetes-admin@kubernetes
-```
-
-
-- Get a list of API Resources available in the cluster
+## API Object Discovery
+- Let's ask the API Server for the API Groups it knows about.
 ```
 kubectl api-resources | more
 
@@ -82,87 +61,51 @@ storageclasses                    sc           storage.k8s.io/v1                
 volumeattachments                              storage.k8s.io/v1                      false        VolumeAttachment
 ```
 
-- Using kubectl explain
+- A list of the objects available in that API Group
 ```
-kubectl explain pods | more
-```
+kubectl api-resources --api-group=apps
 
-- Creating a pod with YAML
+NAME                  SHORTNAMES   APIVERSION   NAMESPACED   KIND
+controllerrevisions                apps/v1      true         ControllerRevision
+daemonsets            ds           apps/v1      true         DaemonSet
+deployments           deploy       apps/v1      true         Deployment
+replicasets           rs           apps/v1      true         ReplicaSet
+statefulsets          sts          apps/v1      true         StatefulSet
 ```
-kubectl apply -f pod.yaml
-```
+- We can use explain to dig further into a specific API Object. 
+Check out KIND and VERSION, we'll see the API Group in the from `group/version` 
+which is `extensions/v1beta1` and that's deprecated.
 
-- Let's look more closely at what we need in `pod.spec` and `pod.spec.containers`
 ```
-kubectl explain pod.spec | more
-kubectl explain pod.spec.containers | more
-```
-
-- Get a list of our currently running pods
-```
-kubectl get pod 
+kubectl explain deployment | head
 ```
 
-- Remove our pod
+- Print the supported API versions on the API server again in the form group/version.
+Here we see apps/v1,apps/v1beta1 and apps/v1beta2
 ```
-kubectl delete pod hello-world
+kubectl api-versions | sort | more
+
+admissionregistration.k8s.io/v1
+apiextensions.k8s.io/v1
+apiregistration.k8s.io/v1
+apps/v1
+authentication.k8s.io/v1
+authorization.k8s.io/v1
+autoscaling/v1
+autoscaling/v2
+batch/v1
+certificates.k8s.io/v1
+coordination.k8s.io/v1
+discovery.k8s.io/v1
+events.k8s.io/v1
+flowcontrol.apiserver.k8s.io/v1beta2
+flowcontrol.apiserver.k8s.io/v1beta3
+networking.k8s.io/v1
+node.k8s.io/v1
+policy/v1
+rbac.authorization.k8s.io/v1
+scheduling.k8s.io/v1
+storage.k8s.io/v1
+v1
 ```
 
-- Working with kubectl dry-run.
-Use kubectl dry-run for server side validatation of a manifest, the object will be sent to the API Server.
-`dry-run=server` will tell you the object was created but it wasn't, 
-it just goes through the whole process but didn't get stored in etcd.
-```
-kubectl apply -f deployment.yaml --dry-run=server
-
-
-#No deployment is created
-kubectl get deployments
-
-
-#Use kubectl dry-run for client side validatation of a manifest...
-kubectl apply -f deployment.yaml --dry-run=client
-
-
-#Let's do that one more time but with an error...replica should be replicas.
-kubectl apply -f deployment-error.yaml --dry-run=client
-
-
-#Use kubectl dry-run client to generate some yaml...for an object
-kubectl create deployment nginx --image=nginx --dry-run=client
-
-
-#Combine dry-run client with -o yaml and you'll get the YAML for the object...in this case a deployment
-kubectl create deployment nginx --image=nginx --dry-run=client -o yaml | more
-
-
-#Can be any object...let's try a pod...
-kubectl run pod nginx-pod --image=nginx --dry-run=client -o yaml | more
-
-
-#We can combine that with IO redirection and store the YAML into a file
-kubectl create deployment nginx --image=nginx --dry-run=client -o yaml > deployment-generated.yaml
-more deployment-generated.yaml
-
-
-#And then we can deploy from that manifest...or use it as a building block for more complex manfiests
-kubectl apply -f deployment-generated.yaml
-
-
-#Clean up from that demo...you can use delete with -f to delete all the resources in the manifests
-kubectl delete -f deployment-generated.yaml
-
-
-
-
-#Working with kubectl diff
-#Create a deployment with 4 replicas
-kubectl apply -f deployment.yaml
-
-
-#Diff that with a deployment with 5 replicas and a new container image...you will see other metadata about the object output too.
-kubectl diff -f deployment-new.yaml | more
-
-
-#Clean up from this demo...you can use delete with -f to delete all the resources in the manifests
-kubectl delete -f deployment.yaml
