@@ -3,7 +3,7 @@
 - Fetch the latest code from course repo
 ```
 git clone https://github.com/hungtran84/k8s-cka.git
-cd k8s-cka/d2_managing_api_server/01_using_k8s_api/01_api_objects/
+cd k8s-cka/d2_managing_api_server/01_using_k8s_api/
 ```
 
 - Get information about our current context, ensure we're logged into the correct cluster.
@@ -114,19 +114,25 @@ Use kubectl dry-run for server side validatation of a manifest, the object will 
 it just goes through the whole process but didn't get stored in etcd.
 ```
 kubectl apply -f deployment.yaml --dry-run=server
+deployment.apps/hello-world created (server dry run)
+```
 
-
-#No deployment is created
+- No deployment is created
+```
 kubectl get deployments
+No resources found in default namespace.
+```
 
-
-#Use kubectl dry-run for client side validatation of a manifest...
+- Use kubectl dry-run for client side validatation of a manifest
+```
 kubectl apply -f deployment.yaml --dry-run=client
+deployment.apps/hello-world created (dry run)
+```
 
-
-#Let's do that one more time but with an error...replica should be replicas.
+- Let's do that one more time but with an error (`replica` should be `replicas`).
+```
 kubectl apply -f deployment-error.yaml --dry-run=client
-
+```
 
 #Use kubectl dry-run client to generate some yaml...for an object
 kubectl create deployment nginx --image=nginx --dry-run=client
