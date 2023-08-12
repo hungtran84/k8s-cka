@@ -3,7 +3,7 @@
 - Fetch the latest code from course repo
 ```
 git clone https://github.com/hungtran84/k8s-cka.git
-cd k8s-cka/d2_managing_api_server/01_using_k8s_api/01_api_object
+cd k8s-cka/d2_managing_api_server/01_using_k8s_api/01_api_objects/
 ```
 
 - Get information about our current context, ensure we're logged into the correct cluster.
