@@ -131,44 +131,106 @@ deployment.apps/hello-world created (dry run)
 
 - Let's do that one more time but with an error (`replica` should be `replicas`).
 ```
-kubectl apply -f deployment-error.yaml --dry-run=client
+kubectl apply -f deployment-error.yaml --dry-run=server
+
+Error from server (BadRequest): error when creating "deployment-error.yaml": Deployment in version "v1" cannot be handled as a Deployment: strict decoding error: unknown field "spec.replica"
 ```
 
-#Use kubectl dry-run client to generate some yaml...for an object
-kubectl create deployment nginx --image=nginx --dry-run=client
-
-
-#Combine dry-run client with -o yaml and you'll get the YAML for the object...in this case a deployment
-kubectl create deployment nginx --image=nginx --dry-run=client -o yaml | more
-
-
-#Can be any object...let's try a pod...
+- Use kubectl dry-run client to generate some yaml for an object
+```
+kubectl create deployment nginx --image=nginx --dry-run=client -oyaml | more
+```
+- Can be any object, let's try a pod
+```
 kubectl run pod nginx-pod --image=nginx --dry-run=client -o yaml | more
+```
 
-
-#We can combine that with IO redirection and store the YAML into a file
+- We can combine that with IO redirection and store the YAML into a file
+```
 kubectl create deployment nginx --image=nginx --dry-run=client -o yaml > deployment-generated.yaml
-more deployment-generated.yaml
+```
 
-
-#And then we can deploy from that manifest...or use it as a building block for more complex manfiests
+- And then we can deploy from that manifest or use it as a building block for more complex manfiests
+```
 kubectl apply -f deployment-generated.yaml
+```
 
-
-#Clean up from that demo...you can use delete with -f to delete all the resources in the manifests
+- Clean up from that demo, you can use delete with `-f` to delete all the resources in the manifests
+```
 kubectl delete -f deployment-generated.yaml
+```
 
-
-
-
-#Working with kubectl diff
-#Create a deployment with 4 replicas
+- Working with `kubectl diff`
+Create a deployment with 4 replicas
+```
 kubectl apply -f deployment.yaml
+deployment.apps/hello-world created
+```
 
 
-#Diff that with a deployment with 5 replicas and a new container image...you will see other metadata about the object output too.
+- Diff that with a deployment with 5 replicas and a new container image, you will see other metadata about the object output too.
+```
 kubectl diff -f deployment-new.yaml | more
 
+iff -u -N /var/folders/5n/wybb_hvd521f6rt_k1m2y2zc0000gp/T/LIVE-3073281377/apps.v1.Deployment.default.hello-world /var/folders/5n/wybb_hvd521f6rt_k1m2y2zc0000gp/T/MERGED-1704172760/apps.v1.Deployment.default.hello-world
+--- /var/folders/5n/wybb_hvd521f6rt_k1m2y2zc0000gp/T/LIVE-3073281377/apps.v1.Deployment.default.hello-world     2023-08-13 00:29:05
++++ /var/folders/5n/wybb_hvd521f6rt_k1m2y2zc0000gp/T/MERGED-1704172760/apps.v1.Deployment.default.hello-world   2023-08-13 00:29:05
+@@ -6,7 +6,7 @@
+     kubectl.kubernetes.io/last-applied-configuration: |
+       {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"hello-world"},"name":"hello-world","namespace":"default"},"spec":{"replicas":4,"selector":{"matchLabels":{"app":"hello-world"}},"template":{"metadata":{"labels":{"app":"hello-world"}},"spec":{"containers":[{"image":"psk8s.azurecr.io/hello-app:1.0","name":"hello-world","ports":[{"containerPort":8080}]}]}}}}
+   creationTimestamp: "2023-08-12T17:28:29Z"
+-  generation: 1
++  generation: 2
+   labels:
+     app: hello-world
+   name: hello-world
+@@ -15,7 +15,7 @@
+   uid: 51ded579-fc0d-498f-80e3-82b1cc21d087
+ spec:
+   progressDeadlineSeconds: 600
+-  replicas: 4
++  replicas: 5
+   revisionHistoryLimit: 10
+   selector:
+     matchLabels:
+@@ -32,7 +32,7 @@
+         app: hello-world
+     spec:
+       containers:
+:...skipping...
+diff -u -N /var/folders/5n/wybb_hvd521f6rt_k1m2y2zc0000gp/T/LIVE-3073281377/apps.v1.Deployment.default.hello-world /var/folders/5n/wybb_hvd521f6rt_k1m2y2zc0000gp/T/MERGED-1704172760/apps.v1.Deployment.default.hello-world
+--- /var/folders/5n/wybb_hvd521f6rt_k1m2y2zc0000gp/T/LIVE-3073281377/apps.v1.Deployment.default.hello-world     2023-08-13 00:29:05
++++ /var/folders/5n/wybb_hvd521f6rt_k1m2y2zc0000gp/T/MERGED-1704172760/apps.v1.Deployment.default.hello-world   2023-08-13 00:29:05
+@@ -6,7 +6,7 @@
+     kubectl.kubernetes.io/last-applied-configuration: |
+       {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"hello-world"},"name":"hello-world","namespace":"default"},"spec":{"replicas":4,"selector":{"matchLabels":{"app":"hello-world"}},"template":{"metadata":{"labels":{"app":"hello-world"}},"spec":{"containers":[{"image":"psk8s.azurecr.io/hello-app:1.0","name":"hello-world","ports":[{"containerPort":8080}]}]}}}}
+   creationTimestamp: "2023-08-12T17:28:29Z"
+-  generation: 1
++  generation: 2
+   labels:
+     app: hello-world
+   name: hello-world
+@@ -15,7 +15,7 @@
+   uid: 51ded579-fc0d-498f-80e3-82b1cc21d087
+ spec:
+   progressDeadlineSeconds: 600
+-  replicas: 4
++  replicas: 5
+   revisionHistoryLimit: 10
+   selector:
+     matchLabels:
+@@ -32,7 +32,7 @@
+         app: hello-world
+     spec:
+       containers:
+-      - image: psk8s.azurecr.io/hello-app:1.0
++      - image: psk8s.azurecr.io/hello-app:2.0
+         imagePullPolicy: IfNotPresent
+         name: hello-world
+         ports:
+```
 
-#Clean up from this demo...you can use delete with -f to delete all the resources in the manifests
+- Clean up all the resources in the manifests
+```
 kubectl delete -f deployment.yaml
+```
