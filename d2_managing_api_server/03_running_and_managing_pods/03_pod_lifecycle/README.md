@@ -18,7 +18,7 @@ Let's use `killall` to kill the `hello-app` process inside our container
 ```
 kubectl exec -it hello-world-pod -- /usr/bin/killall hello-app
 
-0s          Normal   Pulled      pod/hello-world-pod                Container image "psk8s.azurecr.io/hello-app:1.0" already present on machine
+0s          Normal   Pulled      pod/hello-world-pod                Container image "gcr.io/google-samples/hello-app:1.0" already present on machine
 hello-world-pod   0/1     Error               0          14s
 0s          Normal   Created     pod/hello-world-pod                Created container hello-world
 0s          Normal   Started     pod/hello-world-pod                Started container hello-world
@@ -52,7 +52,7 @@ IPs:
 Containers:
   hello-world:
     Container ID:   containerd://4aedc6dec6ac5c0306e88b01feaa0eece4df5993cc5786474147ede014a0990c
-    Image:          psk8s.azurecr.io/hello-app:1.0
+    Image:          gcr.io/google-samples/hello-app:1.0
     Image ID:       psk8s.azurecr.io/hello-app@sha256:a3af38fd5a7dbfe9328f71b00d04516e8e9c778b4886e8aaac8d9e8862a09bc7
     Port:           80/TCP
     Host Port:      0/TCP
@@ -89,7 +89,7 @@ Events:
   Type    Reason     Age                   From               Message
   ----    ------     ----                  ----               -------
   Normal  Scheduled  4m15s                 default-scheduler  Successfully assigned default/hello-world-pod to node4
-  Normal  Pulled     4m1s (x2 over 4m14s)  kubelet            Container image "psk8s.azurecr.io/hello-app:1.0" already present on machine
+  Normal  Pulled     4m1s (x2 over 4m14s)  kubelet            Container image "gcr.io/google-samples/hello-app:1.0" already present on machine
   Normal  Created    4m1s (x2 over 4m14s)  kubelet            Created container hello-world
   Normal  Started    4m1s (x2 over 4m14s)  kubelet            Started container hello-world
 ```
@@ -137,7 +137,7 @@ metadata:
 spec:
   containers:
   - name: hello-world
-    image: psk8s.azurecr.io/hello-app:1.0
+    image: gcr.io/google-samples/hello-app:1.0
   restartPolicy: OnFailure
 ---
 apiVersion: v1
@@ -147,7 +147,7 @@ metadata:
 spec:
   containers:
   - name: hello-world
-    image: psk8s.azurecr.io/hello-app:1.0
+    image: gcr.io/google-samples/hello-app:1.0
   restartPolicy: Never
 ```
 
@@ -190,7 +190,7 @@ IPs:
 Containers:
   hello-world:
     Container ID:   containerd://257fc1bfe881115ce9e6d7d61c44b0f6607fd8ae99669cd9d1a6d47fb0dd93d4
-    Image:          psk8s.azurecr.io/hello-app:1.0
+    Image:          gcr.io/google-samples/hello-app:1.0
     Image ID:       psk8s.azurecr.io/hello-app@sha256:a3af38fd5a7dbfe9328f71b00d04516e8e9c778b4886e8aaac8d9e8862a09bc7
     Port:           <none>
     Host Port:      <none>
@@ -225,7 +225,7 @@ Events:
   Type    Reason     Age   From               Message
   ----    ------     ----  ----               -------
   Normal  Scheduled  3m9s  default-scheduler  Successfully assigned default/hello-world-never-pod to node4
-  Normal  Pulled     3m9s  kubelet            Container image "psk8s.azurecr.io/hello-app:1.0" already present on machine
+  Normal  Pulled     3m9s  kubelet            Container image "gcr.io/google-samples/hello-app:1.0" already present on machine
   Normal  Created    3m9s  kubelet            Created container hello-world
   Normal  Started    3m8s  kubelet            Started container hello-world
 ```
@@ -263,7 +263,7 @@ Events:
   ----     ------     ----                ----               -------
   Normal   Scheduled  10m                 default-scheduler  Successfully assigned default/hello-world-onfailure-pod to node2
   Warning  BackOff    37s (x3 over 103s)  kubelet            Back-off restarting failed container hello-world in pod hello-world-onfailure-pod_default(89372cdc-a545-492b-9363-6842f410e021)
-  Normal   Pulled     24s (x4 over 10m)   kubelet            Container image "psk8s.azurecr.io/hello-app:1.0" already present on machine
+  Normal   Pulled     24s (x4 over 10m)   kubelet            Container image "gcr.io/google-samples/hello-app:1.0" already present on machine
   Normal   Created    24s (x4 over 10m)   kubelet            Created container hello-world
   Normal   Started    24s (x4 over 10m)   kubelet            Started container hello-world
 ```

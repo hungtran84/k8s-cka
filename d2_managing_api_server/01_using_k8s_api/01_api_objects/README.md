@@ -177,7 +177,7 @@ iff -u -N /var/folders/5n/wybb_hvd521f6rt_k1m2y2zc0000gp/T/LIVE-3073281377/apps.
 +++ /var/folders/5n/wybb_hvd521f6rt_k1m2y2zc0000gp/T/MERGED-1704172760/apps.v1.Deployment.default.hello-world   2023-08-13 00:29:05
 @@ -6,7 +6,7 @@
      kubectl.kubernetes.io/last-applied-configuration: |
-       {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"hello-world"},"name":"hello-world","namespace":"default"},"spec":{"replicas":4,"selector":{"matchLabels":{"app":"hello-world"}},"template":{"metadata":{"labels":{"app":"hello-world"}},"spec":{"containers":[{"image":"psk8s.azurecr.io/hello-app:1.0","name":"hello-world","ports":[{"containerPort":8080}]}]}}}}
+       {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"hello-world"},"name":"hello-world","namespace":"default"},"spec":{"replicas":4,"selector":{"matchLabels":{"app":"hello-world"}},"template":{"metadata":{"labels":{"app":"hello-world"}},"spec":{"containers":[{"image":"gcr.io/google-samples/hello-app:1.0","name":"hello-world","ports":[{"containerPort":8080}]}]}}}}
    creationTimestamp: "2023-08-12T17:28:29Z"
 -  generation: 1
 +  generation: 2
@@ -203,7 +203,7 @@ diff -u -N /var/folders/5n/wybb_hvd521f6rt_k1m2y2zc0000gp/T/LIVE-3073281377/apps
 +++ /var/folders/5n/wybb_hvd521f6rt_k1m2y2zc0000gp/T/MERGED-1704172760/apps.v1.Deployment.default.hello-world   2023-08-13 00:29:05
 @@ -6,7 +6,7 @@
      kubectl.kubernetes.io/last-applied-configuration: |
-       {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"hello-world"},"name":"hello-world","namespace":"default"},"spec":{"replicas":4,"selector":{"matchLabels":{"app":"hello-world"}},"template":{"metadata":{"labels":{"app":"hello-world"}},"spec":{"containers":[{"image":"psk8s.azurecr.io/hello-app:1.0","name":"hello-world","ports":[{"containerPort":8080}]}]}}}}
+       {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"hello-world"},"name":"hello-world","namespace":"default"},"spec":{"replicas":4,"selector":{"matchLabels":{"app":"hello-world"}},"template":{"metadata":{"labels":{"app":"hello-world"}},"spec":{"containers":[{"image":"gcr.io/google-samples/hello-app:1.0","name":"hello-world","ports":[{"containerPort":8080}]}]}}}}
    creationTimestamp: "2023-08-12T17:28:29Z"
 -  generation: 1
 +  generation: 2
@@ -223,8 +223,8 @@ diff -u -N /var/folders/5n/wybb_hvd521f6rt_k1m2y2zc0000gp/T/LIVE-3073281377/apps
          app: hello-world
      spec:
        containers:
--      - image: psk8s.azurecr.io/hello-app:1.0
-+      - image: psk8s.azurecr.io/hello-app:2.0
+-      - image: gcr.io/google-samples/hello-app:1.0
++      - image: gcr.io/google-samples/hello-app:2.0
          imagePullPolicy: IfNotPresent
          name: hello-world
          ports:

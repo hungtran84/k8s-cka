@@ -2,6 +2,7 @@
 ```
 kubectl apply -f deployment.yaml
 kubectl get replicaset
+```
 
 
 #Let's look at the selector for this one...and the labels in the pod template

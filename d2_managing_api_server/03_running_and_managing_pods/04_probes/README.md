@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: hello-world
-        image: psk8s.azurecr.io/hello-app:1.0
+        image: gcr.io/google-samples/hello-app:1.0
         ports:
         - containerPort: 8080
         livenessProbe:
@@ -50,8 +50,8 @@ deployment.apps/hello-world created
 0s          Normal   ScalingReplicaSet   deployment/hello-world          Scaled up replica set hello-world-cfd766b9c to 1
 0s          Normal   SuccessfulCreate    replicaset/hello-world-cfd766b9c   Created pod: hello-world-cfd766b9c-gn6pb
 0s          Normal   Scheduled           pod/hello-world-cfd766b9c-gn6pb    Successfully assigned default/hello-world-cfd766b9c-gn6pb to node3
-0s          Normal   Pulling             pod/hello-world-cfd766b9c-gn6pb    Pulling image "psk8s.azurecr.io/hello-app:1.0"
-0s          Normal   Pulled              pod/hello-world-cfd766b9c-gn6pb    Successfully pulled image "psk8s.azurecr.io/hello-app:1.0" in 3.748989077s (3.749030279s including waiting)
+0s          Normal   Pulling             pod/hello-world-cfd766b9c-gn6pb    Pulling image "gcr.io/google-samples/hello-app:1.0"
+0s          Normal   Pulled              pod/hello-world-cfd766b9c-gn6pb    Successfully pulled image "gcr.io/google-samples/hello-app:1.0" in 3.748989077s (3.749030279s including waiting)
 0s          Normal   Created             pod/hello-world-cfd766b9c-gn6pb    Created container hello-world
 0s          Normal   Started             pod/hello-world-cfd766b9c-gn6pb    Started container hello-world
 0s          Warning   Unhealthy           pod/hello-world-cfd766b9c-gn6pb    Readiness probe failed: Get "http://10.5.2.2:8081/": dial tcp 10.5.2.2:8081: connect: connection refused
@@ -81,14 +81,14 @@ kubectl describe pods
       Type     Reason     Age                    From               Message
       ----     ------     ----                   ----               -------
       Normal   Scheduled  3m44s                  default-scheduler  Successfully assigned default/hello-world-cfd766b9c-gn6pb to node3
-      Normal   Pulling    3m44s                  kubelet            Pulling image "psk8s.azurecr.io/hello-app:1.0"
-      Normal   Pulled     3m40s                  kubelet            Successfully pulled image "psk8s.azurecr.io/hello-app:1.0" in 3.748989077s (3.749030279s including waiting)
+      Normal   Pulling    3m44s                  kubelet            Pulling image "gcr.io/google-samples/hello-app:1.0"
+      Normal   Pulled     3m40s                  kubelet            Successfully pulled image "gcr.io/google-samples/hello-app:1.0" in 3.748989077s (3.749030279s including waiting)
       Normal   Started    3m19s (x2 over 3m40s)  kubelet            Started container hello-world
       Normal   Created    2m59s (x3 over 3m40s)  kubelet            Created container hello-world
       Warning  Unhealthy  2m59s (x8 over 3m29s)  kubelet            Readiness probe failed: Get "http://10.5.2.2:8081/": dial tcp 10.5.2.2:8081: connect: connection refused
       Warning  Unhealthy  2m59s (x6 over 3m29s)  kubelet            Liveness probe failed: dial tcp 10.5.2.2:8081: connect: connection refused
       Normal   Killing    2m59s (x2 over 3m19s)  kubelet            Container hello-world failed liveness probe, will be restarted
-      Normal   Pulled     2m59s (x2 over 3m19s)  kubelet            Container image "psk8s.azurecr.io/hello-app:1.0" already present on machine
+      Normal   Pulled     2m59s (x2 over 3m19s)  kubelet            Container image "gcr.io/google-samples/hello-app:1.0" already present on machine
     ```
 
   - 2. Under `Containers`, `Liveness` and `Readiness`, we can see the current configuration. And the current probe configuration. Both are pointing to `8081`.
@@ -127,7 +127,7 @@ spec:
     spec:
       containers:
       - name: hello-world
-        image: psk8s.azurecr.io/hello-app:1.0
+        image: gcr.io/google-samples/hello-app:1.0
         ports:
         - containerPort: 8080
         livenessProbe:
@@ -197,7 +197,7 @@ spec:
     spec:
       containers:
       - name: hello-world
-        image: psk8s.azurecr.io/hello-app:1.0
+        image: gcr.io/google-samples/hello-app:1.0
         ports:
         - containerPort: 8080
         startupProbe:
