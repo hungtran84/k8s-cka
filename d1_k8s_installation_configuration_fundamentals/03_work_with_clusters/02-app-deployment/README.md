@@ -210,7 +210,7 @@ Containers:
   hello-app:
     Container ID:   containerd://179fb282ca458243004dc068a233db45cd6301fd790501e4f41e7bbaa6dd0248
     Image:          gcr.io/google-samples/hello-app:1.0
-    Image ID:       psk8s.azurecr.io/hello-app@sha256:a3af38fd5a7dbfe9328f71b00d04516e8e9c778b4886e8aaac8d9e8862a09bc7
+    Image ID:       gcr.io/google-samples/hello-app@sha256:a3af38fd5a7dbfe9328f71b00d04516e8e9c778b4886e8aaac8d9e8862a09bc7
     Port:           <none>
     Host Port:      <none>
     State:          Running

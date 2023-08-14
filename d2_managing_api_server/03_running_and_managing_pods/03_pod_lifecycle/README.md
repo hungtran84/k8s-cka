@@ -53,7 +53,7 @@ Containers:
   hello-world:
     Container ID:   containerd://4aedc6dec6ac5c0306e88b01feaa0eece4df5993cc5786474147ede014a0990c
     Image:          gcr.io/google-samples/hello-app:1.0
-    Image ID:       psk8s.azurecr.io/hello-app@sha256:a3af38fd5a7dbfe9328f71b00d04516e8e9c778b4886e8aaac8d9e8862a09bc7
+    Image ID:       gcr.io/google-samples/hello-app@sha256:a3af38fd5a7dbfe9328f71b00d04516e8e9c778b4886e8aaac8d9e8862a09bc7
     Port:           80/TCP
     Host Port:      0/TCP
     State:          Running
@@ -191,7 +191,7 @@ Containers:
   hello-world:
     Container ID:   containerd://257fc1bfe881115ce9e6d7d61c44b0f6607fd8ae99669cd9d1a6d47fb0dd93d4
     Image:          gcr.io/google-samples/hello-app:1.0
-    Image ID:       psk8s.azurecr.io/hello-app@sha256:a3af38fd5a7dbfe9328f71b00d04516e8e9c778b4886e8aaac8d9e8862a09bc7
+    Image ID:       gcr.io/google-samples/hello-app@sha256:a3af38fd5a7dbfe9328f71b00d04516e8e9c778b4886e8aaac8d9e8862a09bc7
     Port:           <none>
     Host Port:      <none>
     State:          Terminated
