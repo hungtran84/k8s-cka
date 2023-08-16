@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: hello-world
-        image: psk8s.azurecr.io/hello-app:2.0
+        image: gcr.io/google-samples/hello-app:2.0
         ports:
         - containerPort: 8080
 ---
