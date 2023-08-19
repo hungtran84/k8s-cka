@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: fileserver-claim
+spec:
+  accessModes:
+  - ReadWriteMany
+  storageClassName: "gfs"
+  resources:
+    requests:
+      storage: 100G
