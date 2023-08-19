@@ -1,6 +1,9 @@
-# Demo Pulling a Container from a Private Container Registry
+## Pulling a Container from a Private Container Registry
 
-if needed we can specify this explicitly using the following parameters
+- If needed we can specify this explicitly using the following parameters where:
+DOCKERACC=<your docker username>
+PASSWORD=<password of docker account>
+EMAIL=<your registered email>
 
 ```
 kubectl create secret docker-registry private-reg-cred \
@@ -14,6 +17,7 @@ kubectl create secret docker-registry private-reg-cred \
 
 ```
 kubectl apply -f deployment-private-registry.yaml
+deployment.apps/hello-world-private-registry created
 ```
 
 - Check out Containers and events section to ensure the container was actually pulled.
@@ -23,7 +27,7 @@ This is why I made sure they were deleted from each Node above.
 kubectl describe pods hello-world
 ```
 
-- clean up after our demo
+- Cleanup time
 
 ```
 kubectl delete -f deployment-private-registry.yaml

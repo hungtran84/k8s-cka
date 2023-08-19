@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: hello-world
-        image: votiethuy/hello:latest
+        image: kanchimo/hello-app:1.0
         ports:
           - containerPort: 8080
         resources:
