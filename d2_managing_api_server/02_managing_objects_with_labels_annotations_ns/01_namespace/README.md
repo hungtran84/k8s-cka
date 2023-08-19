@@ -236,7 +236,7 @@ deployment.apps/hello-world created
 - Create a resource imperatively
 ```
 kubectl run hello-world-pod \
-    --image=gcr.io/google-samples/hello-app:1.0 \
+    --image=ghcr.io/hungtran84/hello-app:1.0 \
     --namespace playground1
 ``````
 

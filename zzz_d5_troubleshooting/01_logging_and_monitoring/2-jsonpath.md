@@ -3,7 +3,7 @@
 - Create a workload and scale it
 
 ```
-kubectl create deployment hello-world --image=gcr.io/google-samples/hello-app:1.0
+kubectl create deployment hello-world --image=ghcr.io/hungtran84/hello-app:1.0
 kubectl scale  deployment hello-world --replicas=3
 kubectl get pods -l app=hello-world
 ```

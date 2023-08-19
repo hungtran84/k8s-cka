@@ -27,7 +27,7 @@ kubectl get pods
 - It's a bad image (Status is ErrImagePull or ImagePullBackOff)...
 This means are image isn't available or we have a config issue in our deployment
 Check out the events for more information:
-Failed to pull image "gcr.io/google-samples/hello-ap:1.0": rpc error: code = Unknown desc = Error response from daemon: manifest for gcr.io/google-samples/hello-ap:1.0 not found
+Failed to pull image "ghcr.io/hungtran84/hello-ap:1.0": rpc error: code = Unknown desc = Error response from daemon: manifest for ghcr.io/hungtran84/hello-ap:1.0 not found
 It's hello-ap rather than hello-app. 
 
 ```shell
@@ -48,8 +48,8 @@ kubectl apply -f deployment-1-corrected.yaml
 ```
 
 - IMPERATIVE SOLUTION:
-Change:       - image: gcr.io/google-samples/hello-ap:1.0
-To:           - image: gcr.io/google-samples/hello-app:1.0
+Change:       - image: ghcr.io/hungtran84/hello-ap:1.0
+To:           - image: ghcr.io/hungtran84/hello-app:1.0
 
 ```shell
 kubectl edit deployment hello-world-1

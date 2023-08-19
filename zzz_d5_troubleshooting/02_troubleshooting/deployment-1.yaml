@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: hello-world
-        image: gcr.io/google-samples/hello-ap:1.0
+        image: ghcr.io/hungtran84/hello-ap:1.0
         ports:
         - containerPort: 8080

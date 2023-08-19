@@ -367,8 +367,8 @@
                     },
                     {
                         "names": [
-                            "gcr.io/google-samples/hello-app@sha256:c62ead5b8c15c231f9e786250b07909daf6c266d0fcddd93fea882eb722c3be4",
-                            "gcr.io/google-samples/hello-app:1.0"
+                            "ghcr.io/hungtran84/hello-app@sha256:c62ead5b8c15c231f9e786250b07909daf6c266d0fcddd93fea882eb722c3be4",
+                            "ghcr.io/hungtran84/hello-app:1.0"
                         ],
                         "sizeBytes": 9860419
                     },
@@ -564,8 +564,8 @@
                     },
                     {
                         "names": [
-                            "gcr.io/google-samples/hello-app@sha256:c62ead5b8c15c231f9e786250b07909daf6c266d0fcddd93fea882eb722c3be4",
-                            "gcr.io/google-samples/hello-app:1.0"
+                            "ghcr.io/hungtran84/hello-app@sha256:c62ead5b8c15c231f9e786250b07909daf6c266d0fcddd93fea882eb722c3be4",
+                            "ghcr.io/hungtran84/hello-app:1.0"
                         ],
                         "sizeBytes": 9860419
                     },
@@ -754,8 +754,8 @@
                     },
                     {
                         "names": [
-                            "gcr.io/google-samples/hello-app@sha256:c62ead5b8c15c231f9e786250b07909daf6c266d0fcddd93fea882eb722c3be4",
-                            "gcr.io/google-samples/hello-app:1.0"
+                            "ghcr.io/hungtran84/hello-app@sha256:c62ead5b8c15c231f9e786250b07909daf6c266d0fcddd93fea882eb722c3be4",
+                            "ghcr.io/hungtran84/hello-app:1.0"
                         ],
                         "sizeBytes": 9860419
                     },

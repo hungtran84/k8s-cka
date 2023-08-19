@@ -5,7 +5,7 @@
 ```bash
 gcloud filestore instances create nfs-server \
     --project=lab-test-321409 \
-    --zone=asia-southeast1-a \
+    --zone=asia-southeast1-c \
     --tier=STANDARD \
     --file-share=name="vol1",capacity=1TB \
     --network=name="default"

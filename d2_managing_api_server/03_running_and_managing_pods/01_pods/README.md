@@ -8,8 +8,8 @@ kubectl get events --watch &
 kubectl apply -f pod.yaml
 
 0s          Normal    Scheduled                 pod/hello-world-pod   Successfully assigned default/hello-world-pod to node5
-0s          Normal    Pulling                   pod/hello-world-pod   Pulling image "gcr.io/google-samples/hello-app:1.0"
-0s          Normal    Pulled                    pod/hello-world-pod   Successfully pulled image "gcr.io/google-samples/hello-app:1.0" in 3.584474683s (3.584491183s including waiting)
+0s          Normal    Pulling                   pod/hello-world-pod   Pulling image "ghcr.io/hungtran84/hello-app:1.0"
+0s          Normal    Pulled                    pod/hello-world-pod   Successfully pulled image "ghcr.io/hungtran84/hello-app:1.0" in 3.584474683s (3.584491183s including waiting)
 0s          Normal    Created                   pod/hello-world-pod   Created container hello-world
 0s          Normal    Started                   pod/hello-world-pod   Started container hello-world
 0s          Normal    Starting                  node/node2            Starting kubelet.
@@ -23,8 +23,8 @@ kubectl apply -f deployment.yaml
 0s          Normal    ScalingReplicaSet         deployment/hello-world   Scaled up replica set hello-world-6d59dfc665 to 1
 0s          Normal    SuccessfulCreate          replicaset/hello-world-6d59dfc665   Created pod: hello-world-6d59dfc665-mzhdq
 0s          Normal    Scheduled                 pod/hello-world-6d59dfc665-mzhdq    Successfully assigned default/hello-world-6d59dfc665-mzhdq to node2
-0s          Normal    Pulling                   pod/hello-world-6d59dfc665-mzhdq    Pulling image "gcr.io/google-samples/hello-app:1.0"
-0s          Normal    Pulled                    pod/hello-world-6d59dfc665-mzhdq    Successfully pulled image "gcr.io/google-samples/hello-app:1.0" in 3.894205399s (3.894220099s including waiting)
+0s          Normal    Pulling                   pod/hello-world-6d59dfc665-mzhdq    Pulling image "ghcr.io/hungtran84/hello-app:1.0"
+0s          Normal    Pulled                    pod/hello-world-6d59dfc665-mzhdq    Successfully pulled image "ghcr.io/hungtran84/hello-app:1.0" in 3.894205399s (3.894220099s including waiting)
 0s          Normal    Created                   pod/hello-world-6d59dfc665-mzhdq    Created container hello-world
 0s          Normal    Started                   pod/hello-world-6d59dfc665-mzhdq    Started container hello-world
 ```
@@ -36,9 +36,9 @@ kubectl scale deployment hello-world --replicas=2
 0s          Normal    ScalingReplicaSet         deployment/hello-world              Scaled up replica set hello-world-6d59dfc665 to 2 from 1
 0s          Normal    SuccessfulCreate          replicaset/hello-world-6d59dfc665   Created pod: hello-world-6d59dfc665-v9bbz
 0s          Normal    Scheduled                 pod/hello-world-6d59dfc665-v9bbz    Successfully assigned default/hello-world-6d59dfc665-v9bbz to node4
-0s          Normal    Pulling                   pod/hello-world-6d59dfc665-v9bbz    Pulling image "gcr.io/google-samples/hello-app:1.0"
+0s          Normal    Pulling                   pod/hello-world-6d59dfc665-v9bbz    Pulling image "ghcr.io/hungtran84/hello-app:1.0"
 0s          Normal    Starting                  node/node2                          Starting kubelet.
-0s          Normal    Pulled                    pod/hello-world-6d59dfc665-v9bbz    Successfully pulled image "gcr.io/google-samples/hello-app:1.0" in 3.380702072s (3.380746573s including waiting)
+0s          Normal    Pulled                    pod/hello-world-6d59dfc665-v9bbz    Successfully pulled image "ghcr.io/hungtran84/hello-app:1.0" in 3.380702072s (3.380746573s including waiting)
 0s          Normal    Created                   pod/hello-world-6d59dfc665-v9bbz    Created container hello-world
 0s          Normal    Started                   pod/hello-world-6d59dfc665-v9bbz    Started container hello-world
 ```
@@ -131,7 +131,7 @@ ctrl+c
 ## Static pods
 - Quickly create a Pod manifest using `kubectl run` with `dry-run` and `-o yaml`. Copy the manifest to the clipboard for next step
 ```
-kubectl run hello-world --image=gcr.io/google-samples/hello-app:2.0 --dry-run=client -o yaml --port=8080 
+kubectl run hello-world --image=ghcr.io/hungtran84/hello-app:2.0 --dry-run=client -o yaml --port=8080 
 ```
 - Log into a node.
 Find the staticPodPath:
@@ -196,7 +196,7 @@ metadata:
   name: hello-world
 spec:
   containers:
-  - image: gcr.io/google-samples/hello-app:2.0
+  - image: ghcr.io/hungtran84/hello-app:2.0
     name: hello-world
     ports:
     - containerPort: 8080

@@ -85,7 +85,7 @@ Pod Template:
   Labels:  app=hello-world
   Containers:
    hello-world:
-    Image:        gcr.io/google-samples/hello-ap:2.0
+    Image:        ghcr.io/hungtran84/hello-ap:2.0
     Port:         8080/TCP
     Host Port:    0/TCP
     Environment:  <none>
@@ -149,7 +149,7 @@ Pod Template:
         pod-template-hash=66d45dfbcd
   Containers:
    hello-world:
-    Image:      gcr.io/google-samples/hello-app:2.0
+    Image:      ghcr.io/hungtran84/hello-app:2.0
     Port:       8080/TCP
     Host Port:  0/TCP
     Environment:        <none>
@@ -163,7 +163,7 @@ Pod Template:
         pod-template-hash=664cfdb6fd
   Containers:
    hello-world:
-    Image:      gcr.io/google-samples/hello-ap:2.0
+    Image:      ghcr.io/hungtran84/hello-ap:2.0
     Port:       8080/TCP
     Host Port:  0/TCP
     Environment:        <none>
@@ -237,7 +237,7 @@ Pod Template:
   Labels:  app=hello-world
   Containers:
    hello-world:
-    Image:        gcr.io/google-samples/hello-app:1.0
+    Image:        ghcr.io/hungtran84/hello-app:1.0
     Port:         8080/TCP
     Host Port:    0/TCP
     Readiness:    http-get http://:8080/index.html delay=10s timeout=1s period=10s #success=1 #failure=3
@@ -261,7 +261,7 @@ Events:
 ```
 diff deployment.probes-1.yaml deployment.probes-2.yaml
 23c23
-<         image: gcr.io/google-samples/hello-app:1.0
+<         image: ghcr.io/hungtran84/hello-app:1.0
 ---
 > 
 
@@ -339,7 +339,7 @@ Pod Template:
   Labels:  app=hello-world
   Containers:
    hello-world:
-    Image:        gcr.io/google-samples/hello-app:2.0
+    Image:        ghcr.io/hungtran84/hello-app:2.0
     Port:         8080/TCP
     Host Port:    0/TCP
     Readiness:    http-get http://:8081/index.html delay=10s timeout=1s period=10s #success=1 #failure=3
@@ -384,7 +384,7 @@ Pod Template:
   Labels:  app=hello-world
   Containers:
    hello-world:
-    Image:        gcr.io/google-samples/hello-app:2.0
+    Image:        ghcr.io/hungtran84/hello-app:2.0
     Port:         8080/TCP
     Host Port:    0/TCP
     Readiness:    http-get http://:8081/index.html delay=10s timeout=1s period=10s #success=1 #failure=3
@@ -413,7 +413,7 @@ Pod Template:
   Annotations:  kubernetes.io/change-cause: kubectl apply --filename=deployment.probes-3.yaml --record=true
   Containers:
    hello-world:
-    Image:      gcr.io/google-samples/hello-app:2.0
+    Image:      ghcr.io/hungtran84/hello-app:2.0
     Port:       8080/TCP
     Host Port:  0/TCP
     Readiness:  http-get http://:8081/index.html delay=10s timeout=1s period=10s #success=1 #failure=3
@@ -429,7 +429,7 @@ Pod Template:
   Annotations:  kubernetes.io/change-cause: kubectl apply --filename=deployment.probes-2.yaml --record=true
   Containers:
    hello-world:
-    Image:      gcr.io/google-samples/hello-app:2.0
+    Image:      ghcr.io/hungtran84/hello-app:2.0
     Port:       8080/TCP
     Host Port:  0/TCP
     Readiness:  http-get http://:8080/index.html delay=10s timeout=1s period=10s #success=1 #failure=3
@@ -470,7 +470,7 @@ kubectl delete service hello-world
 
 - Restarting a deployment. Create a fresh deployment so we have easier to read logs.
 ```
-kubectl create deployment hello-world --image=gcr.io/google-samples/hello-app:1.0 --replicas=5
+kubectl create deployment hello-world --image=ghcr.io/hungtran84/hello-app:1.0 --replicas=5
 deployment.apps/hello-world created
 ```
 

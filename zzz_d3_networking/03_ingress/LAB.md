@@ -40,7 +40,7 @@ ingress-nginx-controller-admission   ClusterIP      10.0.138.37   <none>        
 This service will be ClusterIP and we'll expose this service via the Ingress.
 
 ```
-kubectl create deployment hello-world-service-single --image=gcr.io/google-samples/hello-app:1.0
+kubectl create deployment hello-world-service-single --image=ghcr.io/hungtran84/hello-app:1.0
 kubectl scale deployment hello-world-service-single --replicas=2
 kubectl expose deployment hello-world-service-single --port=80 --target-port=8080 --type=ClusterIP
 ```
@@ -89,8 +89,8 @@ curl http://$INGRESSIP
 - Create 2 additional services
 
 ```
-kubectl create deployment hello-world-service-blue --image=gcr.io/google-samples/hello-app:1.0
-kubectl create deployment hello-world-service-red  --image=gcr.io/google-samples/hello-app:1.0
+kubectl create deployment hello-world-service-blue --image=ghcr.io/hungtran84/hello-app:1.0
+kubectl create deployment hello-world-service-red  --image=ghcr.io/hungtran84/hello-app:1.0
 kubectl expose deployment hello-world-service-blue --port=4343 --target-port=8080 --type=ClusterIP
 kubectl expose deployment hello-world-service-red  --port=4242 --target-port=8080 --type=ClusterIP
 ```

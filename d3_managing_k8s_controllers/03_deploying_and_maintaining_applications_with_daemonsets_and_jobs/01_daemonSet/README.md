@@ -28,7 +28,7 @@ hello-world-ds   4         4         4       4            4           <none>    
 
 kubectl get daemonsets -o wide
 NAME             DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE    CONTAINERS    IMAGES                                SELECTOR
-hello-world-ds   4         4         4       4            4           <none>          116s   hello-world   gcr.io/google-samples/hello-app:1.0   app=hello-world-app
+hello-world-ds   4         4         4       4            4           <none>          116s   hello-world   ghcr.io/hungtran84/hello-app:1.0   app=hello-world-app
 
 kubectl get pods -o wide
 NAME                   READY   STATUS    RESTARTS   AGE     IP         NODE    NOMINATED NODE   READINESS GATES
@@ -56,7 +56,7 @@ Pod Template:
   Labels:  app=hello-world-app
   Containers:
    hello-world:
-    Image:        gcr.io/google-samples/hello-app:1.0
+    Image:        ghcr.io/hungtran84/hello-app:1.0
     Port:         <none>
     Host Port:    <none>
     Environment:  <none>
@@ -134,7 +134,7 @@ hello-world-ds   1         1         1       1            1           node=hello
 
 kubectl get daemonsets -o wide
 NAME             DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR         AGE    CONTAINERS    IMAGES                                SELECTOR
-hello-world-ds   1         1         1       1            1           node=hello-world-ns   115s   hello-world   gcr.io/google-samples/hello-app:1.0   app=hello-world-app
+hello-world-ds   1         1         1       1            1           node=hello-world-ns   115s   hello-world   ghcr.io/hungtran84/hello-app:1.0   app=hello-world-app
 
 kubectl get pods -o wide
 NAME                   READY   STATUS    RESTARTS   AGE   IP         NODE    NOMINATED NODE   READINESS GATES
@@ -166,7 +166,7 @@ Pod Template:
   Labels:  app=hello-world-app
   Containers:
    hello-world:
-    Image:        gcr.io/google-samples/hello-app:1.0
+    Image:        ghcr.io/hungtran84/hello-app:1.0
     Port:         <none>
     Host Port:    <none>
     Environment:  <none>
@@ -207,7 +207,7 @@ metadata:
     kubectl.kubernetes.io/last-applied-configuration: |
       {"apiVersion":"apps/v1","kind":"DaemonSet","metadata":{"annotations":{},"name":"hello-world-ds","namespace":"def
 ault"},"spec":{"selector":{"matchLabels":{"app":"hello-world-app"}},"template":{"metadata":{"labels":{"app":"hello-wor
-ld-app"}},"spec":{"containers":[{"image":"gcr.io/google-samples/hello-app:1.0","name":"hello-world"}]}}}}
+ld-app"}},"spec":{"containers":[{"image":"ghcr.io/hungtran84/hello-app:1.0","name":"hello-world"}]}}}}
   creationTimestamp: "2023-08-18T15:37:09Z"
   generation: 1
   name: hello-world-ds
@@ -226,7 +226,7 @@ spec:
         app: hello-world-app
     spec:
       containers:
-      - image: gcr.io/google-samples/hello-app:1.0
+      - image: ghcr.io/hungtran84/hello-app:1.0
         imagePullPolicy: IfNotPresent
         name: hello-world
         resources: {}
@@ -248,10 +248,10 @@ spec:
 ```
 diff DaemonSet.yaml DaemonSet-v2.yaml
 16,17c16
-<           image: gcr.io/google-samples/hello-app:1.0
+<           image: ghcr.io/hungtran84/hello-app:1.0
 < 
 ---
->           image: gcr.io/google-samples/hello-app:2.0
+>           image: ghcr.io/hungtran84/hello-app:2.0
 
 kubectl apply -f DaemonSet-v2.yaml
 daemonset.apps/hello-world-ds configured
@@ -282,7 +282,7 @@ Pod Template:
   Labels:  app=hello-world-app
   Containers:
    hello-world:
-    Image:        gcr.io/google-samples/hello-app:2.0
+    Image:        ghcr.io/hungtran84/hello-app:2.0
     Port:         <none>
     Host Port:    <none>
     Environment:  <none>

@@ -33,7 +33,7 @@
             "spec": {
                 "containers": [
                     {
-                        "image": "gcr.io/google-samples/hello-app:1.0",
+                        "image": "ghcr.io/hungtran84/hello-app:1.0",
                         "imagePullPolicy": "IfNotPresent",
                         "name": "hello-app",
                         "resources": {
@@ -116,8 +116,8 @@
                 "containerStatuses": [
                     {
                         "containerID": "docker://0c9d61e5580bd44600485c6e1f0f41b324db154ed71df54998f60c99ddeb4b55",
-                        "image": "gcr.io/google-samples/hello-app:1.0",
-                        "imageID": "docker-pullable://gcr.io/google-samples/hello-app@sha256:c62ead5b8c15c231f9e786250b07909daf6c266d0fcddd93fea882eb722c3be4",
+                        "image": "ghcr.io/hungtran84/hello-app:1.0",
+                        "imageID": "docker-pullable://ghcr.io/hungtran84/hello-app@sha256:c62ead5b8c15c231f9e786250b07909daf6c266d0fcddd93fea882eb722c3be4",
                         "lastState": {},
                         "name": "hello-app",
                         "ready": true,
@@ -174,7 +174,7 @@
             "spec": {
                 "containers": [
                     {
-                        "image": "gcr.io/google-samples/hello-app:1.0",
+                        "image": "ghcr.io/hungtran84/hello-app:1.0",
                         "imagePullPolicy": "IfNotPresent",
                         "name": "hello-app",
                         "resources": {
@@ -257,8 +257,8 @@
                 "containerStatuses": [
                     {
                         "containerID": "docker://090b6b4a8130daff98b14ae2dea3bb435972d438e5fcea6637785934832521df",
-                        "image": "gcr.io/google-samples/hello-app:1.0",
-                        "imageID": "docker-pullable://gcr.io/google-samples/hello-app@sha256:c62ead5b8c15c231f9e786250b07909daf6c266d0fcddd93fea882eb722c3be4",
+                        "image": "ghcr.io/hungtran84/hello-app:1.0",
+                        "imageID": "docker-pullable://ghcr.io/hungtran84/hello-app@sha256:c62ead5b8c15c231f9e786250b07909daf6c266d0fcddd93fea882eb722c3be4",
                         "lastState": {},
                         "name": "hello-app",
                         "ready": true,
@@ -315,7 +315,7 @@
             "spec": {
                 "containers": [
                     {
-                        "image": "gcr.io/google-samples/hello-app:1.0",
+                        "image": "ghcr.io/hungtran84/hello-app:1.0",
                         "imagePullPolicy": "IfNotPresent",
                         "name": "hello-app",
                         "resources": {
@@ -398,8 +398,8 @@
                 "containerStatuses": [
                     {
                         "containerID": "docker://69a2d58d479b02405f30d45eab8e6adb33e05b153ce801406e408613e78a56b9",
-                        "image": "gcr.io/google-samples/hello-app:1.0",
-                        "imageID": "docker-pullable://gcr.io/google-samples/hello-app@sha256:c62ead5b8c15c231f9e786250b07909daf6c266d0fcddd93fea882eb722c3be4",
+                        "image": "ghcr.io/hungtran84/hello-app:1.0",
+                        "imageID": "docker-pullable://ghcr.io/hungtran84/hello-app@sha256:c62ead5b8c15c231f9e786250b07909daf6c266d0fcddd93fea882eb722c3be4",
                         "lastState": {},
                         "name": "hello-app",
                         "ready": true,

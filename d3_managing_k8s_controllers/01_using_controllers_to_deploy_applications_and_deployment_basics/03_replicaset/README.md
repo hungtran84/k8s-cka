@@ -30,7 +30,7 @@ Pod Template:
            pod-template-hash=5c7b5b8dfd
   Containers:
    hello-world:
-    Image:        gcr.io/google-samples/hello-app:1.0
+    Image:        ghcr.io/hungtran84/hello-app:1.0
     Port:         8080/TCP
     Host Port:    0/TCP
     Environment:  <none>
@@ -77,7 +77,7 @@ spec:
     spec:
       containers:
       - name: hello-world
-        image: gcr.io/google-samples/hello-app:1.0
+        image: ghcr.io/hungtran84/hello-app:1.0
         ports:
         - containerPort: 8080
 ---
@@ -199,7 +199,7 @@ Pod Template:
            pod-template-hash=64d47845c
   Containers:
    hello-world:
-    Image:        gcr.io/google-samples/hello-app:1.0
+    Image:        ghcr.io/hungtran84/hello-app:1.0
     Port:         8080/TCP
     Host Port:    0/TCP
     Environment:  <none>

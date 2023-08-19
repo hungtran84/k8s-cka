@@ -2,7 +2,7 @@
 
 - With `kubectl create`, we have lot's of options available  such as image, container ports, and replicas...
 ```
-kubectl create deployment hello-world --image=gcr.io/google-samples/hello-app:1.0
+kubectl create deployment hello-world --image=ghcr.io/hungtran84/hello-app:1.0
 deployment.apps/hello-world created
 
 kubectl scale deployment hello-world --replicas=5
@@ -11,7 +11,7 @@ deployment.apps/hello-world scaled
 
 - These two commands can be combined into one command if needed
 ```
-kubectl create deployment hello-world1 --image=gcr.io/google-samples/hello-app:1.0 --replicas=5
+kubectl create deployment hello-world1 --image=ghcr.io/hungtran84/hello-app:1.0 --replicas=5
 deployment.apps/hello-world1 created
 ```
 

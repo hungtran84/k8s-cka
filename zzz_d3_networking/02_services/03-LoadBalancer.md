@@ -3,7 +3,7 @@
 - Imperative, create a deployment with one replica
 
 ```
-kubectl create deployment hello-world-loadbalancer --image=gcr.io/google-samples/hello-app:1.0
+kubectl create deployment hello-world-loadbalancer --image=ghcr.io/hungtran84/hello-app:1.0
 ```
 
 - If you don't define a type, the default is ClusterIP

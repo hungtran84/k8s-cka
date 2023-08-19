@@ -2,14 +2,14 @@
 
 - Deploying resources imperatively in your cluster. This is pulling a simple hello-world app container image from a container registry.
 ```
-kubectl create deployment hello-world --image=gcr.io/google-samples/hello-app:1.0
+kubectl create deployment hello-world --image=ghcr.io/hungtran84/hello-app:1.0
 
 deployment.apps/hello-world created
 ```
 
 - But let's deploy a single "bare" pod that's not managed by a controller...
 ```
-kubectl run hello-world-pod --image=gcr.io/google-samples/hello-app:1.0
+kubectl run hello-world-pod --image=ghcr.io/hungtran84/hello-app:1.0
 
 pod/hello-world-pod created
 ```
@@ -131,7 +131,7 @@ Pod Template:
   Labels:  app=hello-world
   Containers:
    hello-app:
-    Image:        gcr.io/google-samples/hello-app:1.0
+    Image:        ghcr.io/hungtran84/hello-app:1.0
     Port:         <none>
     Host Port:    <none>
     Environment:  <none>
@@ -172,7 +172,7 @@ Pod Template:
            pod-template-hash=689f56667c
   Containers:
    hello-app:
-    Image:        gcr.io/google-samples/hello-app:1.0
+    Image:        ghcr.io/hungtran84/hello-app:1.0
     Port:         <none>
     Host Port:    <none>
     Environment:  <none>
@@ -209,8 +209,8 @@ Controlled By:  ReplicaSet/hello-world-689f56667c
 Containers:
   hello-app:
     Container ID:   containerd://179fb282ca458243004dc068a233db45cd6301fd790501e4f41e7bbaa6dd0248
-    Image:          gcr.io/google-samples/hello-app:1.0
-    Image ID:       gcr.io/google-samples/hello-app@sha256:a3af38fd5a7dbfe9328f71b00d04516e8e9c778b4886e8aaac8d9e8862a09bc7
+    Image:          ghcr.io/hungtran84/hello-app:1.0
+    Image ID:       ghcr.io/hungtran84/hello-app@sha256:a3af38fd5a7dbfe9328f71b00d04516e8e9c778b4886e8aaac8d9e8862a09bc7
     Port:           <none>
     Host Port:      <none>
     State:          Running
@@ -242,7 +242,7 @@ Events:
   ----    ------     ----   ----               -------
   Normal  Scheduled  3m15s  default-scheduler  Successfully assigned default/hello-world-689f56667c-fk7vv to kube-node
 2
-  Normal  Pulled     3m14s  kubelet            Container image "gcr.io/google-samples/hello-app:1.0" already present on mac
+  Normal  Pulled     3m14s  kubelet            Container image "ghcr.io/hungtran84/hello-app:1.0" already present on mac
 hine
   Normal  Created    3m14s  kubelet            Created container hello-app
   Normal  Started    3m14s  kubelet            Started container hello-app
@@ -377,7 +377,7 @@ spec:
         app: hello-world
     spec:
       containers:
-      - image: gcr.io/google-samples/hello-app:1.0
+      - image: ghcr.io/hungtran84/hello-app:1.0
         imagePullPolicy: IfNotPresent
         name: hello-app
         resources: {}
@@ -471,7 +471,7 @@ This can be used a a template for move complex deployments.
 
 ```
 kubectl create deployment hello-world \
-     --image=gcr.io/google-samples/hello-app:1.0 \
+     --image=ghcr.io/hungtran84/hello-app:1.0 \
      --dry-run=client -o yaml | more 
 
 apiVersion: apps/v1
@@ -494,7 +494,7 @@ spec:
         app: hello-world
     spec:
       containers:
-      - image: gcr.io/google-samples/hello-app:1.0
+      - image: ghcr.io/hungtran84/hello-app:1.0
         name: hello-app
         resources: {}
 status: {}
@@ -504,7 +504,7 @@ status: {}
 
 ```
 kubectl create deployment hello-world \
-     --image=gcr.io/google-samples/hello-app:1.0 \
+     --image=ghcr.io/hungtran84/hello-app:1.0 \
      --dry-run=client -o yaml > deployment.yaml
 ```
 
@@ -599,7 +599,7 @@ spec:
         app: hello-world
     spec:
       containers:
-      - image: gcr.io/google-samples/hello-app:1.0
+      - image: ghcr.io/hungtran84/hello-app:1.0
         name: hello-app
         resources: {}
 status: {}

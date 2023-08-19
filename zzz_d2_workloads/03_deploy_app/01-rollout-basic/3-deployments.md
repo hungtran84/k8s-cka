@@ -3,7 +3,7 @@
 - Let's start off imperatively creating a deployment and scaling it...
 
 ```
-kubectl run hello-world --image=gcr.io/google-samples/hello-app:1.0
+kubectl run hello-world --image=ghcr.io/hungtran84/hello-app:1.0
 ```
 
 - Check out the status of our deployment, we get 1 Replica

@@ -5,4 +5,4 @@ metadata:
 spec:
   containers:
   - name: hello-world
-    image: gcr.io/google-samples/hello-app:1.0
+    image: ghcr.io/hungtran84/hello-app:1.0

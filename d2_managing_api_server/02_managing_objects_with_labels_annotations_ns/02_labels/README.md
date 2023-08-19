@@ -186,7 +186,7 @@ Pod Template:
   Labels:  app=hello-world
   Containers:
    hello-world:
-    Image:        gcr.io/google-samples/hello-app:1.0
+    Image:        ghcr.io/hungtran84/hello-app:1.0
     Port:         8080/TCP
     Host Port:    0/TCP
     Environment:  <none>
@@ -226,7 +226,7 @@ Pod Template:
            pod-template-hash=6d59dfc665
   Containers:
    hello-world:
-    Image:        gcr.io/google-samples/hello-app:1.0
+    Image:        ghcr.io/hungtran84/hello-app:1.0
     Port:         8080/TCP
     Host Port:    0/TCP
     Environment:  <none>
