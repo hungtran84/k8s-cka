@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: hello-world
-        image: nginx
+        image: ghcr.io/hungtran84/hello-app:1.0
         env:
         - name: DATABASE_SERVERNAME
           value: "sql.example.local"
