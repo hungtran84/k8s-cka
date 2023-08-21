@@ -289,3 +289,15 @@ kubectl delete -f nfs.nginx.yaml
 kubectl delete pvc fileserver-claim 
 kubectl delete pv fileserver
 ```
+
+- Don't forget to delete pricy GCP FileStore
+```
+gcloud filestore instances delete nfs-server --zone=asia-southeast1-c
+
+You are about to delete Filestore instance projects/red-grid-394709/locations/asia-southeast1-c/instances/nfs-server.
+Are you sure?
+
+Do you want to continue (Y/n)?  y
+
+Waiting for [operation-1692439459324-60343c4c6e277-c465553a-96662aea] to finish...working  
+```

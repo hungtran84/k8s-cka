@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-world-pod
+spec:
+  nodeName: 'gke-gke-test-default-pool-03d0c6b2-sv8f' # change it to match your node name
+  containers:
+  - name: hello-world
+    image: ghcr.io/hungtran84/hello-app:1.0
+    ports:
+    - containerPort: 8080
