@@ -60,7 +60,7 @@ node3   Ready    <none>          10s   v1.27.2
 ## Deploy nginx app
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/hungtran84/k8s-cka/master/d1_managing_cluster/01_exploring_k8_architecture/nginx-app.yaml
+kubectl apply -f https://raw.githubusercontent.com/hungtran84/k8s-cka/master/d1_k8s_installation_configuration_fundamentals/01_exploring_k8_architecture/nginx-app.yaml
 ```
 
 ## Access nginx web app
