@@ -31,5 +31,5 @@ spec:
         app: hello-world-nodeport
     spec:
       containers:
-      - image: psk8s.azurecr.io/hello-app:1.0
+      - image: ghcr.io/hungtran84/hello-app:1.0
         name: hello-app
