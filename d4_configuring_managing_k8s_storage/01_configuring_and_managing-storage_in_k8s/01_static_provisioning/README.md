@@ -50,7 +50,7 @@ fileserver   1T         RWX            Retain           Available           gfs 
 
 - Look more closely at the PV and it's configuration
 ```
-kubectl describe PersistentVolume pv-nfs-data
+kubectl describe PersistentVolume fileserver
 Name:            fileserver
 Labels:          <none>
 Annotations:     <none>
