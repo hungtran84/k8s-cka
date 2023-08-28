@@ -6,10 +6,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-      - tls.example.com
+      - training.hungtran.net
     secretName: tls-secret
   rules:
-  - host: tls.example.com
+  - host: training.hungtran.net
     http:
       paths:
       - path: /
