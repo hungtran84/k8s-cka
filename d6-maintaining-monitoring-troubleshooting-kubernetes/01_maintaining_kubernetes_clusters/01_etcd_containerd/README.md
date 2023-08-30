@@ -131,46 +131,57 @@ kubectl get secret test-secret
 The kubelet will restart the pod due to the configuation change
 
 
-#Let's delete an object again then run a restore to get it back
+- Let's delete an object again then run a restore to get it back
+```
 kubectl delete secret test-secret 
+```
 
-
-#Using the same backup from earlier
-#Run the restore to a define data-dir, rather than the current working directory
+- Using the same backup from earlier.
+Run the restore to a define `data-dir`, rather than the current working directory
+```
 sudo ETCDCTL_API=3 etcdctl snapshot restore /var/lib/dat-backup.db --data-dir=/var/lib/etcd-restore
+```
+
+- Update the static pod manifest to point to that `/var/lib/etcd-restore`...in three places
 
 
-#Update the static pod manifest to point to that /var/lib/etcd-restore...in three places
-#Update 
-#    - --data-dir=/var/lib/etcd-restore
-#...
-#   volumeMounts:
-#    - mountPath: /var/lib/etcd-restore
-#...
-#   volumes:
-#    - hostPath:
-#        name: etcd-data
-#        path: /var/lib/etcd-restore
+```yaml 
+    - --data-dir=/var/lib/etcd-restore
+...
+   volumeMounts:
+    - mountPath: /var/lib/etcd-restore
+...
+   volumes:
+    - hostPath:
+        name: etcd-data
+        path: /var/lib/etcd-restore
+```
+
+```
 sudo cp /etc/kubernetes/manifests/etcd.yaml .
 sudo vi /etc/kubernetes/manifests/etcd.yaml
+```
 
-
-#This will cause the control plane pods to restart...let's check it at the container runtime level
+- This will cause the control plane pods to restart. Let's check it at the container runtime level
+```
 sudo crictl --runtime-endpoint unix:///run/containerd/containerd.sock ps
+```
 
-
-#Is our secret back?
+- Is our secret back?
+```
 kubectl get secret test-secret 
+```
 
+- Remove `etcdctl` from the Control Plane Node node if you want. 
+Put back the original `etcd.yaml`
 
-#remove etcdctl from the Control Plane Node node if you want. 
-#Put back the original etcd.yaml
+```
 kubectl delete secret test-secret 
 sudo cp etcd.yaml /etc/kubernetes/manifests/
 sudo rm /var/lib/dat-backup.db 
 sudo rm /usr/local/bin/etcdctl
 sudo rm -rf /var/lib/etcd.OLD
 sudo rm -rf /var/lib/etcd-restore
-rm ~/content/course/02/demo/etcd-v${RELEASE}-linux-amd64.tar.gz
-
+rm etcd-v${RELEASE}-linux-amd64.tar.gz
+```
 
