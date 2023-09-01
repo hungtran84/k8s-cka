@@ -8,6 +8,7 @@ https://training.hungtran.net/kubernetes/lab-setup/provision-compute-resources
 
 https://training.hungtran.net/kubernetes/lab-setup/create-kubeamd-based-cluster
 
+
 ## Create GKE Cluster
 
 - Set a default compute zone:
