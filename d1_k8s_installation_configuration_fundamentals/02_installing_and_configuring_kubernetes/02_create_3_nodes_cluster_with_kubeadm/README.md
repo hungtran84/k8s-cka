@@ -285,3 +285,6 @@ kubectl get services
 ```
 curl --head http://localhost:<nodeport>
 ```
+
+> [!NOTE]  
+> It will take time for the calico network to function correctly.
