@@ -97,27 +97,7 @@ gcloud compute firewall-rules delete nodeports
 
 ### Setup and configure Kubernetes cluster using `kubeadm`
 
-#### 1. Setup terminal (on `cp1`)
-
-```
-gcloud compute ssh cp1
-```
-
-```shell
-sudo apt-get update
-sudo apt-get install -y bash-completion binutils
-echo 'colorscheme ron' >> ~/.vimrc
-echo 'set tabstop=2' >> ~/.vimrc
-echo 'set shiftwidth=2' >> ~/.vimrc
-echo 'set expandtab' >> ~/.vimrc
-echo 'source <(kubectl completion bash)' >> ~/.bashrc
-echo 'alias k=kubectl' >> ~/.bashrc
-echo 'alias c=clear' >> ~/.bashrc
-echo 'complete -F __start_kubectl k' >> ~/.bashrc
-sed -i '1s/^/force_color_prompt=yes\n/' ~/.bashrc
-```
-
-#### 2. Install and configure containerd (all nodes)
+#### 1. Install and configure containerd (all nodes)
 - Load required modules at boot
 ```
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
@@ -150,7 +130,7 @@ sudo apt-get update
 sudo apt-get install -y containerd
 ```
 
-#### 3. Install Kubernetes packages (all nodes)
+#### 2. Install Kubernetes packages (all nodes)
 - Add Google's apt repository gpg key
 ```shell
 sudo mkdir -p /etc/apt/keyrings
@@ -191,7 +171,7 @@ sudo systemctl enable kubelet.service
 sudo systemctl enable containerd.service
 ```
 
-#### 4. Create cluster (on `cp1`)
+#### 3. Create cluster (on `cp1`)
 
 - Use kubeadm init to bootstrap the cluster
 ```
@@ -237,7 +217,7 @@ sudo more /etc/kubernetes/manifests/etcd.yaml
 sudo more /etc/kubernetes/manifests/kube-apiserver.yaml
 ```
 
-#### 5. Join node to cluster (on `node1`, `node2`, `node3`)
+#### 4. Join node to cluster (on `node1`, `node2`, `node3`)
 - Add node to the cluster (with the kubeadm join command generated on CP node)
 ```
 sudo kubeadm join 10.148.0.2:6443 --token xxxxxxx --discovery-token-ca-cert-hash sha256:xxx
@@ -248,7 +228,7 @@ sudo kubeadm join 10.148.0.2:6443 --token xxxxxxx --discovery-token-ca-cert-hash
 >
 > `sudo kubeadm token create --print-join-command`
 
-#### 6. Verify cluster status (on CP node)
+#### 5. Verify cluster status (on CP node)
 - Back on Control Plane Node, this will say `NotReady` until the networking pod is created on the new node
 ```
 kubectl get nodes
@@ -259,7 +239,7 @@ kubectl get nodes
 kubectl get pod -n kube-system -owide
 ```
 
-#### 7. Run End-to-end test
+#### 6. Run End-to-end test
 - Deploy nginx 
 ```
 kubectl apply -f https://k8s.io/examples/application/deployment.yaml
@@ -288,3 +268,25 @@ curl --head http://localhost:<nodeport>
 
 > [!NOTE]  
 > It will take time for the calico network to function correctly.
+
+- Cleanup resources after test
+```
+kubectl delete -f https://k8s.io/examples/application/deployment.yaml
+kubectl delete services nginx-deployment
+```
+
+#### 7. [optional] Setup terminal (on `cp1`)
+
+```shell
+sudo apt-get update
+sudo apt-get install -y bash-completion binutils
+echo 'colorscheme ron' >> ~/.vimrc
+echo 'set tabstop=2' >> ~/.vimrc
+echo 'set shiftwidth=2' >> ~/.vimrc
+echo 'set expandtab' >> ~/.vimrc
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+echo 'alias k=kubectl' >> ~/.bashrc
+echo 'alias c=clear' >> ~/.bashrc
+echo 'complete -F __start_kubectl k' >> ~/.bashrc
+sed -i '1s/^/force_color_prompt=yes\n/' ~/.bashrc
+```
