@@ -26,7 +26,7 @@ Resolving deltas: 100% (430/430), done.
 - Deploy the application using Docker compose
 
 ```
-cd k8s-cka/d0_docker_k8s_essentials/compose-demo
+cd k8s-cka/d0_docker_k8s_essentials/01-compose-demo
 docker-compose up -d
 ```
 
