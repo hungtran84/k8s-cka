@@ -6,7 +6,7 @@ pod/hello-world created
 ```
 - Get a list of our currently running Pods
 ```
-kubectl get pod hello-
+kubectl get pod hello-world
 
 NAME          READY   STATUS    RESTARTS   AGE
 hello-world   1/1     Running   0          27s
