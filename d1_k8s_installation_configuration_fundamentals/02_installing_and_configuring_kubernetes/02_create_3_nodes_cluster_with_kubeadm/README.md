@@ -133,14 +133,11 @@ sudo apt-get install -y containerd
 #### 2. Install Kubernetes packages (all nodes)
 - Add Google's apt repository gpg key
 ```shell
-sudo mkdir -p /etc/apt/keyrings
-sudo curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
+echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.27/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
 
-- Add the Kubernetes apt reposistory
-```
-echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-```
 - Update the package list and use apt-cache policy to inspect versions available in the repository
 ```
 sudo apt-get update
