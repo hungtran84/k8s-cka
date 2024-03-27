@@ -25,7 +25,7 @@ Operation "operations/acf.p2-992714546140-656169a8-750c-4e5f-b347-c641af14a3ad" 
 - Tell GKE to create a single zone, three node cluster for us. 3 is the default size. We're disabling basic authentication as it's no longer supported after 1.19 in GKE. It will take some time to create a cluster.
 
 ```
-gcloud container clusters create gke-test --no-enable-basic-auth
+gcloud container clusters create gke-test --no-enable-basic-auth --disk-size=50GB
 
 Default change: VPC-native is the default mode during cluster creation for versions greater than 1.21.0-gke.1500. To create advanced routes based clusters, please pass the `--no-enable-ip-alias` flag
 Default change: During creation of nodepools or autoscaling configuration changes for cluster versions greater than 1.24.1-gke.800 a default location policy is applied. For Spot and PVM it defaults to ANY, and for all other VM kinds a BALANCED policy is used. To change the default values use the `--location-policy` flag.
