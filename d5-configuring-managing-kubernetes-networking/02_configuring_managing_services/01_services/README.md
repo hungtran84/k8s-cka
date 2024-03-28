@@ -26,7 +26,7 @@ echo $SERVICEIP
 - Access the service inside the cluster
 ```
 kubectl run bb --image=yauritux/busybox-curl -it --rm -- sh
-# curl http://$SERVICEIP
+# curl http://<SERVICEIP>
 Hello, world!
 Version: 1.0.0
 hello-world-clusterip-75b496c458-mrnf6
@@ -50,7 +50,7 @@ echo $PODIP
 ```
 curl http://$PODIP:8080
 kubectl run bb --image=yauritux/busybox-curl -it --rm -- sh
-# curl http://$PODIP:8080
+# curl http://<PODIP>:8080
 ```
 
 - Scale the deployment, new endpoints are registered automatically
@@ -63,7 +63,8 @@ kubectl get endpoints hello-world-clusterip
 - Access the service inside the cluster, this time our requests will be load balanced
 
 ```
-kubectl run bb --image=yauritux/busybox-curl -it --rm -- curl http://$SERVICEIP
+kubectl run bb --image=yauritux/busybox-curl -it --rm -- sh
+curl http://<SERVICEIP>
 ```
 
 - The Service's Endpoints match the labels, let's look at the service and it's selector and the pods labels.
