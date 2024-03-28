@@ -25,9 +25,8 @@ echo $SERVICEIP
 
 - Access the service inside the cluster
 ```
-kubectl run bb --image=yauritux/busybox-curl -it --rm -- curl http://$SERVICEIP
-If you don't see a command prompt, try pressing enter.
-warning: couldn't attach to pod/bb, falling back to streaming logs: unable to upgrade connection: container bb not found in pod bb_default
+kubectl run bb --image=yauritux/busybox-curl -it --rm -- sh
+# curl http://$SERVICEIP
 Hello, world!
 Version: 1.0.0
 hello-world-clusterip-75b496c458-mrnf6
@@ -50,7 +49,8 @@ echo $PODIP
 
 ```
 curl http://$PODIP:8080
-kubectl run bb --image=yauritux/busybox-curl -it --rm -- curl http://$PODIP:8080
+kubectl run bb --image=yauritux/busybox-curl -it --rm -- sh
+# curl http://$PODIP:8080
 ```
 
 - Scale the deployment, new endpoints are registered automatically
