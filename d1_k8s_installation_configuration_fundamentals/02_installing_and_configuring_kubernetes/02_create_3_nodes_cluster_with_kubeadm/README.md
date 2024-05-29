@@ -43,26 +43,26 @@ Your active configuration is: [default]
 name: cp1/node[1,2]
 family: e2-medium (2vCPU, 4GB)
 image: ubuntu20.04 LTS focal
-disk: 200GB
+disk: 50GB
 ```
 
 - Create a control plane node `cp1`
 ```
 gcloud compute instances create cp1 \
 --machine-type=e2-medium \
---image=ubuntu-2004-focal-v20230831 \
+--image=ubuntu-2004-focal-v20240519 \
 --image-project=ubuntu-os-cloud \
---boot-disk-size=200GB
+--boot-disk-size=50GB
 ```
 
 - Create 3 worker nodes
 ```
-for i in 1 2 3; do
+for i in 1 2 ; do
     gcloud compute instances create node${i} \
         --machine-type=e2-medium \
-        --image=ubuntu-2004-focal-v20230831 \
+        --image=ubuntu-2004-focal-v20240519 \
         --image-project=ubuntu-os-cloud \
-        --boot-disk-size=200GB
+        --boot-disk-size=50GB
 done
 ```
 
@@ -82,7 +82,6 @@ gcloud compute instances list
 gcloud compute ssh cp1
 gcloud compute ssh node1
 gcloud compute ssh node2
-gcloud compute ssh node3
 ```
 
 - Cleanup resources if needed
@@ -215,7 +214,7 @@ sudo more /etc/kubernetes/manifests/etcd.yaml
 sudo more /etc/kubernetes/manifests/kube-apiserver.yaml
 ```
 
-#### 4. Join node to cluster (on `node1`, `node2`, `node3`)
+#### 4. Join node to cluster (on `node1`, `node2`)
 - Add node to the cluster (with the kubeadm join command generated on CP node)
 ```
 sudo kubeadm join 10.148.0.2:6443 --token xxxxxxx --discovery-token-ca-cert-hash sha256:xxx
