@@ -133,9 +133,9 @@ sudo apt-get install -y containerd
 - Add Google's apt repository gpg key
 ```shell
 sudo mkdir -p /etc/apt/keyrings
-echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
 
 - Update the package list and use apt-cache policy to inspect versions available in the repository
@@ -145,11 +145,11 @@ apt-cache policy kubelet | head -n 20
 ```
 
 > [!NOTE]  
-> We will start with v1.28 instead of the latest version because later in this course, we'll run an upgrade.
+> We will start with v1.30.0 instead of the latest version because later in this course, we'll run an upgrade.
 
-- Install v1.28.8 kubernetes packages
+- Install v1.30.0 kubernetes packages
 ```
-VERSION=1.28.8
+VERSION=1.30.0
 sudo apt-get install -y kubelet=$VERSION-1.1 kubeadm=$VERSION-1.1 kubectl=$VERSION-1.1 
 sudo apt-mark hold kubelet kubeadm kubectl containerd
 ```
