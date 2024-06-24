@@ -236,7 +236,7 @@ kubectl get nodes
 kubectl get pod -n kube-system -owide
 ```
 
-#### 6. Run End-to-end test
+#### 6. Run End-to-end test (on CP)
 - Deploy nginx 
 ```
 kubectl apply -f https://k8s.io/examples/application/deployment.yaml
