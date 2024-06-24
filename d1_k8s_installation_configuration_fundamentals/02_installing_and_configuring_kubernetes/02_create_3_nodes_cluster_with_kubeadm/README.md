@@ -37,7 +37,7 @@ project = red-grid-394709
 Your active configuration is: [default]
 ```
 
-#### 3. Create 3 GCE instances
+#### 3. Create 2 GCE instances
 - VM configuration
 ```
 name: cp1/node[1,2]
