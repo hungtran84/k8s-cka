@@ -260,7 +260,9 @@ kubectl get services
 
 - Check access
 ```
-curl --head http://localhost:<nodeport>
+curl --head http://node1:<nodeport>
+
+curl --head http://node2:<nodeport>
 ```
 
 > [!NOTE]  
