@@ -92,16 +92,6 @@ exit
 
 - Now, let's access our Pod's application directly, without a service and also off the Pod network.
 ```
-kubectl port-forward hello-world-pod 80:8080
-Forwarding from 127.0.0.1:80 -> 8080
-ctrl+c
-```
-
-| :warning:  To port-forward k8s pod to a priviliged port (TCP/UDP port < 1024) the priviliged access may be required)   |
-|-----------------------------------------|
-
-- Let's do it again, but this time with a non-priviledged port
-```
 kubectl port-forward hello-world-pod 8080:8080 &
 ```
 - We can point curl to localhost, and kubectl port-forward will send the traffic through the API server to the Pod
