@@ -28,7 +28,6 @@ spec:
 - Create the Pod with 2 init containers.
 Each `init container` will be processed serially until completion before the main application container is started
 ```
-kubectl apply -f init-containers.yaml
 
 kubectl apply -f init-containers.yaml
 pod/init-containers created
