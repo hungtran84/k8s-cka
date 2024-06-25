@@ -59,7 +59,7 @@ NAME                           READY   STATUS    RESTARTS   AGE
 hello-world-6d59dfc665-mzhdq   1/1     Running   0          3m49s
 hello-world-pod                1/1     Running   0          43m
 
-kubectl -v 6 exec -it hello-world-pod -- /bin/sh
+kubectl exec -it hello-world-pod -- /bin/sh
 
 0813 11:24:30.892018   10276 loader.go:373] Config loaded from file:  /root/.kube/config
 I0813 11:24:30.913264   10276 round_trippers.go:553] GET https://192.168.0.8:6443/api/v1/namespaces/default/pods/hello-world-pod 200 OK in 11 milliseconds
