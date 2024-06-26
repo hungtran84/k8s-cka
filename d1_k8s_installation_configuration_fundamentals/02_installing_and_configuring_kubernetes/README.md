@@ -22,7 +22,7 @@ gcloud services enable container.googleapis.com
 Operation "operations/acf.p2-992714546140-656169a8-750c-4e5f-b347-c641af14a3ad" finished successfully.
 ```
 
-- Tell GKE to create a single zone, three node cluster for us. 3 is the default size. We're disabling basic authentication as it's no longer supported after 1.19 in GKE. It will take some time to create a cluster.
+- Tell GKE to create a single zone, 3 node cluster for us. 3 is the default size. We're disabling basic authentication as it's no longer supported after 1.19 in GKE. It will take some time to create a cluster.
 
 ```
 gcloud container clusters create gke-test --no-enable-basic-auth --disk-size=50GB --num-nodes=2
