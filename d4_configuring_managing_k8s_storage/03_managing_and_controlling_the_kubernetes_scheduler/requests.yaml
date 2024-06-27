@@ -17,6 +17,6 @@ spec:
         image: ghcr.io/hungtran84/hello-app:1.0
         resources:
           requests:
-            cpu: "0.3"
+            cpu: "1"
         ports:
         - containerPort: 8080
