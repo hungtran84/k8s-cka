@@ -58,7 +58,7 @@ hello-world-requests-856cf9b988-pvffz   1/1     Running             0          1
 hello-world-requests-856cf9b988-xdvb2   1/1     Running             0          2s
 hello-world-requests-856cf9b988-ghwr4   1/1     Running             0          2s
 ```
-- We created three pods, one on each node
+- We created 2 pods, one on each node
 ```
 kubectl get pods -o wide
 ```
