@@ -1,10 +1,25 @@
-FROM python:3.7-alpine
+FROM python:3.11-slim
+
+# Set working directory
 WORKDIR /code
-ENV FLASK_APP=app.py
-ENV FLASK_RUN_HOST=0.0.0.0
-RUN apk add --no-cache gcc musl-dev linux-headers
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
-EXPOSE 5000
+
+# Install curl for healthcheck
+RUN apt-get update && apt-get install -y curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install dependencies first to leverage Docker cache
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code
 COPY . .
-CMD ["flask", "run"]
+
+# Create non-root user
+RUN useradd -m appuser && chown -R appuser:appuser /code
+USER appuser
+
+# Expose port
+EXPOSE 5000
+
+# Command to run the application
+CMD ["python", "app.py"]
